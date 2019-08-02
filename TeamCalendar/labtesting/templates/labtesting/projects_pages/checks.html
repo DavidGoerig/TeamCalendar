@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Project page{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/labtesting/template/setup.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+<h3 class="centered p-2">Project checks - {{ project.project_name }}</h3>
+<span class="cat_title row mb-2 ml-5">Global checks&nbsp</span>
+<div class="centered">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="modifychecks" value="Submit"/>
+    </form>
+</div>
+<span class="cat_title row mb-2 ml-5">Instrument checks&nbsp</span>
+<p class="centered">This part is coming (like the winter)</p>
+<span class="cat_title row mb-2 ml-5">Project approval&nbsp</span>
+<p class="centered">This part is coming (like the winter)</p>
+{% endblock %}
+{% block footer %}
+<a href="/lab/project/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/return.svg" %}" />
+</a>
+<a href="/lab/project/orga/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/back.svg" %}" />
+</a>
+<a href="/lab/project/meas/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/next.svg" %}" />
+</a>
+{% endblock %}>

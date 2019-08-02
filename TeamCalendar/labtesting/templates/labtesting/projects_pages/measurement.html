@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Project page{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/labtesting/projects/meas.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+<h3 class="centered p-2">Project Measurement - {{ project.project_name }}</h3>
+
+{# Timeline field #}
+<h5>Timeline</h5>
+<table class="table table-striped">
+    <tr>
+        <th>Order</th>
+        {% for day in timeline_disp|dictsort:"day_nbr" %}
+        {% if day.lvl_nbr != "0" %}
+        <td>Day {{ day.day_nbr }}</td>
+        {% else %}
+        <td>Pause day {{ day.day_nbr }}</td>
+        {% endif %}
+        {% endfor %}
+    </tr>
+    <tr>
+        <th>Sequence name</th>
+        {% for day in timeline_disp|dictsort:"day_nbr" %}
+        <td>{{ day.seq_name }}</td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th>Level</th>
+        {% for day in timeline_disp|dictsort:"day_nbr" %}
+        {% if day.lvl_nbr != "0" %}
+        <td>{{ day.lvl_nbr }}</td>
+        {% else %}
+        <td>Pause</td>
+        {% endif %}
+        {% endfor %}
+    </tr>
+    <tr>
+         <th>Link to the measurment day</th>
+         {% for day in timeline_disp|dictsort:"day_nbr" %}
+        <td><a href="/lab/project/measday/{{ project.id }}/{{ day.id }}">Here add a button</a></td>
+         {% endfor %}
+     </tr>
+    <tr>
+         <th>Check</th>
+         {% for day in timeline_disp|dictsort:"day_nbr" %}
+         <td>NOK</td>
+         {% endfor %}
+     </tr>
+</table>
+
+{% endblock %}
+{% block footer %}
+<a href="/lab/project/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/return.svg" %}" />
+</a>
+<a href="/lab/project/checks/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/back.svg" %}" />
+</a>
+{% endblock %}>

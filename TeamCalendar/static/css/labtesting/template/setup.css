@@ -1,0 +1,89 @@
+.centered {
+    text-align: center;
+}
+
+.boxes {
+    border-left: 5px solid #7FB2E5;
+    background-color: white;
+    box-shadow: 2px 2px 3px 3px #bfbfbf;
+}
+
+.boxfield {
+    font-family: 'Poppins', sans-serif;
+    color: #7FB2E5;
+    font-size: 22px;
+}
+
+.unscrollable {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #1279BF;
+}
+
+.white {
+    color: white;
+}
+
+.main-button {
+    width: 100%;
+}
+
+.hidden_div {
+    display: none;
+}
+
+input[type=submit] {
+    background-color:#7fb2e5;
+	border-radius:10px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: 'Poppins', sans-serif;
+	font-size: 17px;
+}
+input[type=submit]:hover {
+	background-color:#6eaae6;
+}
+
+
+.cat_title {
+    border-bottom: 3px solid #7FB2E5;
+}
+
+.button_param {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #7fb2e5;
+  color: #FFFFFF;
+  text-align: center;
+  width: 100px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button_param span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button_param span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button_param:hover span {
+  padding-right: 25px;
+}
+
+.button_param:hover span:after {
+  opacity: 1;
+  right: 0;
+}

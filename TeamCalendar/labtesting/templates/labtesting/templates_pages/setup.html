@@ -1,0 +1,299 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Templates page{% endblock %}
+{% block scriptncss %}
+    <script type="text/javascript" src="{% static "js/setup_drop_categories.js" %}"></script>
+    <link href="{% static "/css/labtesting/template/setup.css" %}" rel="stylesheet" type="text/css" />
+
+<script>
+$(document).ready(function(e) {
+    function hide_all_panels() {
+        {% for levelz in levels_disp %}
+            $("#{{ levelz.param }}_button").hide();
+        {% endfor %}
+    }
+    function hide_all_panels_seq() {
+        {% for sequence_def in sequence_disp %}
+            $("#{{ sequence_def.id }}_seqbutton").hide();
+        {% endfor %}
+    }
+
+    {% for levelz in levels_disp %}
+        $("#{{ levelz.param }}_togglebutton").click(function(){
+            if ($("#{{ levelz.param }}_button").is(":visible")) {
+                $("#{{ levelz.param }}_button").hide();
+                return ;
+            }
+            hide_all_panels();
+            $("#{{ levelz.param }}_button").toggle();
+        });
+    {% endfor %}
+    {% for sequence_def in sequence_disp %}
+        $("#{{ sequence_def.id }}_togglebuttonseq").click(function(){
+            if ($("#{{ sequence_def.id }}_seqbutton").is(":visible")) {
+                $("#{{ sequence_def.id }}_seqbutton").hide();
+                return ;
+            }
+            hide_all_panels_seq();
+            $("#{{ sequence_def.id }}_seqbutton").toggle();
+        });
+    {% endfor %}
+});
+</script>
+{% endblock %}
+{% block content %}
+
+        <h3 class="centered p-2">{{ title }} - {{ project.project_name }}</h3>
+
+{# INFORMATION FIELD #}
+
+<span id="toggle_proj" class="cat_title row mb-2 ml-5">Project type / Sample prep method:&nbsp<img width="10px" height="10px" src="{% static "/img/icons/navigation/maximize.svg" %}" /></span>
+<div class="row ml-5 mr-5 mb-2 boxes p-2 hidden_div" id="proj">
+    <form method="post">{% csrf_token %}{{ proj_form.as_p }}<input type="submit" name="setprojtype" value="Save"/></form>
+</div>
+
+{# PARAMETERS FIELD #}
+
+<span id="toggle_params" class="cat_title row mb-2  ml-5">Choose parameters:&nbsp<img width="10px" height="10px" src="{% static "/img/icons/navigation/maximize.svg" %}" /></span>
+<div id="params" class="hidden_div">
+    <div class="row  ml-5 mr-5 mb-2 boxes p-2">
+        <div class="col-sm-12 col-md-12 col-lg-4">
+            <table class="table table-striped">
+                <tr>
+                    <th>Parameter name</th>
+                    <th></th>
+                </tr>
+                {% for level in levels_disp %}
+                <tr>
+                    <td>{{ level.param }}</td>
+                    <td><form method="post">{% csrf_token %}<input type="submit" name="deleteparam:{{ level.id }}" value="Delete"/></form></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-8">
+            Add parameter:
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" name="addparam" value="Submit"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+{# LEVEL FIELD #}
+
+<span id="toggle_param_levels" class="cat_title row mb-2  ml-5">Manage parameters levels:&nbsp<img width="10px" height="10px" src="{% static "/img/icons/navigation/maximize.svg" %}" /></span>
+<div id="param_levels" class="hidden_div">
+    <div class="row ml-5 mr-5 mb-2">
+        {% for levelz in levels_disp %}
+            <button class="button_param" type="button" id="{{ levelz.param }}_togglebutton">{{ levelz.param }}</button>
+        {% empty %}
+            <p>First add some parameters to create levels.</p>
+        {% endfor %}
+    </div>
+    {% for levelz in levels_disp %}
+    <div class="{% if lastid != levelz.id %} hidden_div {% endif %}" id="{{ levelz.param }}_button">
+        <span class="row ml-5">Manage {{ levelz.param }} levels:</span>
+        <div class="row ml-5 mr-5 mb-2 boxes ">
+            <div class="row">
+                <div class="col-sm-7 col-md-7 col-lg-7">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Level</th>
+                            <th>Measurement</th>
+                            <th>Target value</th>
+                            <th>Acceptance criteria</th>
+                            <th>Delete</th>
+                        </tr>
+                    {% for lvl in levelz.lvl_def.all|dictsort:"lvl_nbr" %}
+                        <tr>
+                            <td>{{ lvl.lvl_nbr }}</td>
+                            <td>{{ lvl.measurement_nbr }}</td>
+                            <td>{{ lvl.target_value }}</td>
+                            <td>{{ lvl.acceptance_criteria }}</td>
+                            <td><form method="post">{% csrf_token %}<input type="submit" name="deletelvl:{{ levelz.id }}:{{ lvl.id }}" value="Delete"/></form></td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    Add levels (Change the lvl nbr for changing a level, or let it so to continue):
+                    <form method="post">{% csrf_token %}{{ lvlform.as_p }}<input type="submit" name="addlevel:{{ levelz.id }}" value="Add level"/></form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{# DEVICE FIELD #}
+
+<span id="toggle_devices" class="cat_title row mb-2  ml-5">Scope's devices:&nbsp<img width="10px" height="10px" src="{% static "/img/icons/navigation/maximize.svg" %}" /></span>
+<div id="devices" class="row ml-5 mr-5 mb-2 boxes hidden_div">
+    <div class="row">
+    <div class="col-sm-12 col-md-7 col-lg-7">
+        <table class="table table-striped">
+            <tr>
+                <th>Device name</th>
+                <th>Is reference?</th>
+                <th>Delete</th>
+            </tr>
+            {% for dev in device_disp %}
+            <tr>
+                <td>{{ dev.name }}</td>
+                <td>{{ dev.is_reference }}</td>
+                <td><form method="post">{% csrf_token %}<input type="submit" name="deletedevice:{{ dev.id }}" value="Delete"/></form></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="col-sm-12 col-md-5 col-lg-5">
+        <form method="post">{% csrf_token %}{{ device_form.as_p }}<input type="submit" name="adddevice" value="Add device"/></form>
+    </div>
+
+    </div>
+</div>
+{# CREATE SEQUENCE FIELD #}
+
+<span id="toggle_createseq" class="cat_title row mb-2  ml-5">Create sequence:&nbsp<img width="10px" height="10px" src="{% static "/img/icons/navigation/maximize.svg" %}" /></span>
+<div id="createseq" class="hidden_div">
+    <div class="row  ml-5 mr-5 mb-2 boxes p-2">
+        <div class="col-sm-12 col-md-12 col-lg-6">
+            <table class="table table-striped">
+                <tr>
+                    <th>Sequence name</th>
+                    <th>Sample matrix</th>
+                    <th>Sample type</th>
+                    <th></th>
+                </tr>
+                {% for sequence in sequence_disp %}
+                <tr>
+                    <td>{{ sequence.name }}</td>
+                    <td>{{ sequence.sample_matrix }}</td>
+                    <td>{{ sequence.sample_type }}</td>
+                    <td><form method="post">{% csrf_token %}<input type="submit" name="deletesequence:{{ sequence.id }}" value="Delete"/></form></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-6">
+            Add parameter:
+            <form method="post">
+                {% csrf_token %}
+                {{ seqform.as_p }}
+                <input type="submit" name="addsequence" value="Submit"/>
+            </form>
+        </div>
+    </div>
+</div>
+{# SEQUENCE FIELD #}
+
+<span id="toggle_sequence" class="cat_title row mb-2 ml-5">Sequence creation:&nbsp<img width="10px" height="10px" src="{% static "/img/icons/navigation/maximize.svg" %}" /></span>
+<div id="sequence" class="row ml-5 mr-5 mb-2 boxes hidden_div">
+    <div class="row ml-5 mr-5 mb-2">
+        {% for sequence_def in sequence_disp %}
+            <button class="button_param" type="button" id="{{ sequence_def.id }}_togglebuttonseq">{{ sequence_def.name }}</button>
+        {% empty %}
+            <p>First create a sequence.</p>
+        {% endfor %}
+
+    </div>
+    {% for sequence_def in sequence_disp %}
+    <div id="{{ sequence_def.id }}_seqbutton" class="{% if lastid != sequence_def.id %} hidden_div {% endif %}">
+        <p class="centered">{{ sequence_def.name }} -  {{ sequence_def.sample_type }} -  {{sequence_def.sample_matrix}}</p>
+        <h5>Parameter level definition</h5>
+        <div class="row" style="width: 100%">
+            {% for levelz in levels_disp %}
+            <div class="col-sm-12 col-md-12 col-lg-6">
+                <h7>{{ levelz.param }} levels</h7>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Level</th>
+                        <th>Measurement</th>
+                        <th>Target value</th>
+                        <th>Acceptance criteria</th>
+                        <th>Add to sequence</th>
+                    </tr>
+                    {% for lvl in levelz.lvl_def.all|dictsort:"lvl_nbr" %}
+                    <tr>
+                        <td>{{ lvl.lvl_nbr }}</td>
+                        <td>{{ lvl.measurement_nbr }}</td>
+                        <td>{{ lvl.target_value }}</td>
+                        <td>{{ lvl.acceptance_criteria }}</td>
+                        <td><form method="post">{% csrf_token %}<input type="submit" name="chooselvl:{{ levelz.id }}:{{ lvl.id }}:{{ sequence_def.id}}" value="Add"/></form></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-12 col-md-12 col-lg-7">
+                <h5>Build sequence:</h5>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Order</th>
+                        {% for seq in sequence_def.seq.all|dictsort:"order_number" %}
+                        <td>{{ seq.order_number }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <th>Parameter</th>
+                        {% for seq in sequence_def.seq.all|dictsort:"order_number" %}
+                            {% if seq.pause_time == 0 %}
+                                <td>{{ seq.param }}</td>
+                            {% else %}
+                                <td>{{ seq.pause_time }} min pause</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <th>Level</th>
+                        {% for seq in sequence_def.seq.all|dictsort:"order_number" %}
+                            {% if seq.pause_time == 0 %}
+                                <td>Level {{ seq.level }}</td>
+                            {% else %}
+                                <td>{% if seq.break_def != "" %} for {% endif %}{{ seq.break_def }} </td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <th>Delete</th>
+                        {% for seq in sequence_def.seq.all|dictsort:"order_number" %}
+                            <td><form method="post">{% csrf_token %}<input type="submit" name="deletesequencelevel:{{ seq.id }}:{{sequence_def.id}}" value="Delete"/></form></td>
+                        {% endfor %}
+                    </tr>
+                </table>
+            </div>
+            <h5>Add a break</h5>
+            <div class="col-sm-12 col-md-12 col-lg-5">
+                <form method="post">{% csrf_token %}{{ pause_form.as_p }}<input type="submit" name="addpause:{{sequence_def.id}}" value="Add break"/></form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+{% block footer %}
+{% if title != "Project Setup" %}
+<a href="/lab/template/view/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/return.svg" %}" />
+</a>
+<a href="/lab/template/content/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/back.svg" %}" />
+</a>
+{% else %}
+<a href="/lab/project/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/return.svg" %}" />
+</a>
+<a href="/lab/project/content/{{ project.id }}/False">
+    <img src="{% static "/img/icons/navigation/back.svg" %}" />
+</a>
+<a href="/lab/project/orga/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/next.svg" %}" />
+</a>
+{% endif %}
+{% endblock %}>

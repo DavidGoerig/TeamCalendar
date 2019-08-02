@@ -1,0 +1,1 @@
+1. In project / template view, add a popup "Sure to delete" before delete it.

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Project page{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/labtesting/projects/orga.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+        <h3 class="centered p-2">Project organisation - {{ project.project_name }}</h3>
+<div class="row">
+    <div class="col-sm-0 col-md-3 col-lg-3"></div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <a href="/lab/project/orga/instrument_reservation/{{ project.id }}">
+            <div class="boxes p-2 mt-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                            <h5>Instrument reservation</h5>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="/lab/project/orga/orders/{{ project.id }}">
+            <div class="boxes p-2 mt-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                            <h5>Orders</h5>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="/lab/project/orga/timeline/{{ project.id }}">
+            <div class="boxes p-2 mt-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                            <h5>Timeline creation</h5>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+<a href="/lab/project/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/return.svg" %}" />
+</a>
+<a href="/lab/project/setup/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/back.svg" %}" />
+</a>
+<a href="/lab/project/checks/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/next.svg" %}" />
+</a>
+{% endblock %}>

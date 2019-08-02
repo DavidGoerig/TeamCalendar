@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Templates page{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/labtesting/template/create.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+<h3 class="centered p-2">Project creation</h3>
+<div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-4 centered">
+        {% if already_used_name == True %}Choose another name, this one is already used.{% endif %}
+        <h5>Choose the name of the project</h5>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" name="projectname" value="Submit"/>
+        </form>
+    </div>
+    {% if name != None %}
+    <div class="col-sm-12 col-md-8 col-lg-8 cat">
+        <h5>Create the "{{ name }}" project</h5>
+        <h6 class="mt-2">Create a blank one:</h6>
+        <div>
+             <form method="post">{% csrf_token %}<input class="buttonadd p-2 ml-5" type="submit" name="new_project:{{ name }}" value="New blank project"/></form>
+        </div>
+        <h6 class="mt-2">Select a template:</h6>
+        <div class="small_scrollable row" >
+            {% for project in projects %}
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="boxes pl-2 mt-3">
+                    <h5>{{ project.project_name }}</h5>
+                        <div class="row">
+                            <div class="col-sm-10 col-md-10 col-lg-10">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-4 col-lg-4">
+                                        Project type: <p>{{ project.setup.project_type }}</p>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 col-lg-4">
+                                        Parameters name:
+                                        <p>
+                                            {% for params in project.setup.levels.all %}
+                                                {{ params.param }}
+                                            {% endfor %}
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 col-lg-4">
+                                        Responsable name: <p>{{ project.information.responsable_name }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-md-2 col-lg-2">
+                                <form method="post">{% csrf_token %}<input type="submit" name="choose_template:{{ project.id }}:{{ name }}" value="Choose"/></form>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            {% empty %}
+                <p>Aucun template.</p>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

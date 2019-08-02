@@ -1,0 +1,59 @@
+
+#content {
+    background-image: url("/static/img/background/ebvisuals-machine-1920.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position:center;
+    overflow: hidden;
+}
+
+.titlehomepart {
+    color: white;
+    padding: 20px;
+    font-family: 'minion-pro';
+}
+
+.bgdiv {
+    background-color: #F2F2F2;
+    padding: 10px;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.bottomcontainer {
+    top: 10%;
+    position: relative;
+    overflow-wrap: break-word;
+}
+
+.titlebox {
+    margin-left: 30px;
+    color: #ba9d37;
+    font-size: 25px;
+    color: black;
+    font-family: 'minion-pro';
+}
+
+.centered {
+    text-align: center;
+}
+
+.boxes {
+    border-left: 5px solid #7FB2E5;
+    background-color: white;
+    box-shadow: 2px 2px 3px 3px #bfbfbf;
+}
+
+.boxfield {
+    font-family: 'Poppins', sans-serif;
+    color: #7FB2E5;
+    font-size: 22px;
+}
+
+.explanation {
+    font-family: 'Poppins', sans-serif;
+    color: #787878;
+    font-size: 12px
+}

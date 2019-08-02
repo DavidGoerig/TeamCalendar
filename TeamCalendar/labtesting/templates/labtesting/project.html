@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Project page{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/labtesting/project.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-3 col-md-3 col-lg-3 unscrollable p-5" id="nomovediv">
+        <h3 class="centered white p-2">Project information</h3>
+
+        <span class="white pt-5">Project name:</span><p>{{ project.project_name }}</p>
+        <span class="white pt-3">Project number:</span> <p>{{ project.information.project_nbr }}</p>
+        <span class="white pt-3">Area:</span> <p>{{ project.information.area }}</p>
+        <span class="white pt-3">Responsable name:</span> <p>{{ project.information.responsable_name }}</p>
+        <span class="white pt-3">Test plan:</span> <p>{{ project.information.test_plan }}</p>
+        <span class="white pt-3">Test report:</span> <p>{{ project.information.test_report }}</p>
+        <span class="white pt-3">eLN number:</span> <p class=" pb-5">{{ project.information.eln_number }}</p>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-9" id="movediv" >
+        <div class="row pt-5">
+            <div class="col-sm-0 col-md-2 col-lg-2"></div>
+            <div class="col-sm-12 col-md-8 col-lg-8 pt-5">
+                <a href="/lab/project/content/{{ project.id }}/False">
+                    <div class="row main-button boxes p-3 m-3">
+                        1. Content of the studies
+                    </div>
+                </a>
+                <a href="/lab/project/setup/{{ project.id }}">
+                    <div class="row main-button boxes p-3 m-3">
+                        2. Test Setup
+                    </div>
+                </a>
+                <a href="/lab/project/orga/{{ project.id }}">
+                    <div class="row main-button boxes p-3 m-3">
+                        3. Test organisation
+                    </div>
+                </a>
+                <a href="/lab/project/checks/{{ project.id }}">
+                    <div class="row main-button boxes p-3 m-3">
+                        4. Checks and approval
+                    </div>
+                </a>
+                <a href="/lab/project/meas/{{ project.id }}">
+                    <div class="row main-button boxes p-3 m-3">
+                        5. Measurement
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+<div style="display: inline-block">
+    <form method="post" style="display: inline-block">{% csrf_token %}<input type="submit" name="delete" value="Delete"/></form>
+    <a href="/lab/workflow" style="display: inline-block">
+        <img src="{% static "/img/icons/navigation/return.svg" %}" />
+    </a>
+</div>
+{% endblock %}>

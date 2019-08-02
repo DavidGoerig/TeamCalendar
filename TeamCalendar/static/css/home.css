@@ -1,0 +1,59 @@
+#content {
+    background-image: url("/static/img/background/roche-diagnostics-1280.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position:center;
+    overflow: hidden;
+}
+
+.welcomepolicetitle {
+    color: white;
+    padding-left: 20px;
+    font-family: 'minion-pro';
+}
+
+.bgdiv {
+    background-color: #F2F2F2;
+    padding: 10px;
+}
+
+.welcomepolicetxt {
+    color: #d2d2d2;
+    padding-left: 10px;
+}
+
+.bottomcontainer {
+    position: relative;
+    top: 40%;
+    overflow-wrap: break-word;
+}
+
+.titlebox {
+    margin-left: 30px;
+    color: #ba9d37;
+    font-size: 25px;
+    color: black;
+    font-family: 'minion-pro';
+}
+
+.loginfield {
+    margin-top: 160px;
+}
+
+.centered {
+    text-align: center;
+}
+
+label {
+    color: black;
+}
+
+.boxes {
+    background-color: white;
+    box-shadow: 2px 2px 3px 3px #bfbfbf;
+}
+
+.boxfield {
+    font-family: 'Poppins', sans-serif;
+    color: #7FB2E5;
+}

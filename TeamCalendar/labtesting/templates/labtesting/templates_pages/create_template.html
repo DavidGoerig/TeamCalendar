@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Templates page{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/labtesting/template/create.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+<p>Choose the name of the project</p>
+{% if already_used_name == True %}Choose another name, this one is already used.{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="projectname" value="Submit"/>
+</form>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Projects display{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/labtesting/template/template_display.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+
+<div class="row scrollable">
+    <div class="col-sm-12 col-md-3 col-lg-3" >
+        <h3 class="ml-5">{{ title }}</h3>
+        <p class="ml-3">Filters</p>
+    </div>
+    <div class="col-sm-12 col-md-7 col-lg-7 scrollable" >
+        <div>
+            <a href="/lab/template/create">
+                <div class="col-sm-4 col-md-4 col-lg-4 buttonadd pl-2 ml-5">
+                    Add a template
+                </div>
+            </a>
+        </div>
+        <div>
+        {% for project in projects %}
+        <a href="/lab/template/view/{{ project.id }}">
+            <div class="boxes pl-2 mt-3">
+    	        <h5>{{ project.project_name }}</h5>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            Project type: <p>{{ project.setup.project_type }}</p>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            Parameters name:
+                            <p>
+                                {% for params in project.setup.levels.all %}
+                                    {{ params.param }}
+                                {% endfor %}
+                            </p>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            Responsable name: <p>{{ project.information.responsable_name }}</p>
+                        </div>
+                    </div>
+            </div>
+        </a>
+        {% empty %}
+            <p>Aucun article.</p>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

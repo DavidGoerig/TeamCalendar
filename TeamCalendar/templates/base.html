@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    {% load static %}
+    <script type="text/javascript" src="{% static "js/menu_creation.js" %}"></script>
+    <link href="{% static "/css/menu.css" %}" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="{% static "img/icons/Jarvis-icon.png" %}">
+    {% block scriptncss %}{% endblock %}
+   <title>{% block title %}<b>JARVIS</b> Organizing Process Instrument Analysis{% endblock %}</title>
+</head>
+<body>
+    <header></header>
+            <nav class="navbar navbar-expand-lg fixed-top paddingtopbar" id="topBar">
+                    <div class="container-fluid">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info topbarbg">
+                            <i class="fas fa-bars facolor fa-lg"></i>
+                        </button>
+                        <span class="navbar-title-txt">
+                            JARVIS
+                        </span>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav ml-auto">
+                                <a class="nav-link" href="/admin_home">
+                                    <img src="/static/img/icons/admin.svg" class="adminicone" width="55px" height="30px">
+                                </a>
+                                {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/deconnect">
+                                        <span class="navbar-btn-txt">
+                                            {{ user.username }}
+                                        </span><br>
+                                        <span class="navbar-btn-logoff">Log off</span>
+                                    </a>
+                                </li>
+                                {% else %}
+                                {% endif %}
+                            </ul>
+                            <img src="/static/img/icons/roche-logo.png" class="rocheicone" width="55px" height="30px">
+                        </div> <!-- SupportedContent -->
+                    </div> <!-- container-fluid -->
+                </nav>
+        <div class="wrapper">
+            <div>
+                <nav id="sidebar" class="fixed-top active" ></nav>
+            </div>
+            <div id="content" class="large active">
+                    {% block content %}{% endblock %}
+            </div> <!-- content -->
+        </div> <!-- wrapper -->
+<footer class="align-right">{% block footer %}{% endblock %}</footer>
+</body>
+</html>

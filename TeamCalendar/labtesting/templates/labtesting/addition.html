@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Addition / Test page{% endblock %}
+{% block content %}
+    <h1>Ma super calculatrice</h1>
+    <p>{{ nombre1 }} + {{ nombre2 }}, ça fait <strong>{{ total }}</strong> !<br />
+        {% if nombre1 == 100 %}
+            Nombre 1 est égal à 100 {{ nombre1|add:nombre2 }}
+        {% elif nombre1 == 101 %}
+            egal à 101 {{ nombre1|add:nombre2 }}
+        {% else %}
+            pas du tout {{ nombre1|add:nombre2 }}
+        {% endif %}
+    Nous pouvons également calculer la somme dans le template : {{ nombre1|add:nombre2 }}.</p>
+{% endblock %}

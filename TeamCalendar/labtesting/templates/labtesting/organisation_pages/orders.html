@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Project page{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/labtesting/projects/orga.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+        <h3 class="centered p-2">Orders - {{ project.project_name }}</h3>
+{% endblock %}
+{% block footer %}
+<a href="/lab/project/orga/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/return.svg" %}" />
+</a>
+{% endblock %}>

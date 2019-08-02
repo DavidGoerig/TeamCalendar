@@ -1,0 +1,13 @@
+.centered {
+    text-align: center;
+}
+
+.boxes {
+    border-left: 5px solid #7FB2E5;
+    background-color: white;
+    box-shadow: 2px 2px 3px 3px #bfbfbf;
+}
+
+.full {
+    width: 100%;
+}

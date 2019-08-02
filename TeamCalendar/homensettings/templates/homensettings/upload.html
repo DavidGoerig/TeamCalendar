@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Admin home{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/admin_home.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+<h3 class="centered p-2 mb-5">Upload a file</h3>
+<form enctype="multipart/form-data" method="post">{% csrf_token %}{{ form.as_p }}<input type="submit" name="upload" value="Upload_del"/><input type="submit" name="upload" value="Reset and upload database"/></form>
+
+{% endblock %}

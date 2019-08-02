@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Project page{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/labtesting/template/setup.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+        <h3 class="centered p-2">Timeline creation - {{ project.project_name }}</h3>
+
+{# Timeline field #}
+<h5>Timeline</h5>
+<table class="table table-striped">
+    <tr>
+        <th>Order</th>
+        {% for day in timeline_disp|dictsort:"day_nbr" %}
+        {% if day.pause_time == 0 %}
+        <td>Phase {{ day.day_nbr }}</td>
+        {% else %}
+        <td>Pause phase {{ day.day_nbr }}</td>
+        {% endif %}
+        {% endfor %}
+    </tr>
+    <tr>
+        <th>Sequence name</th>
+        {% for day in timeline_disp|dictsort:"day_nbr" %}
+        <td>{{ day.seq_name }}</td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th>Parameter : Level</th>
+        {% for day in timeline_disp|dictsort:"day_nbr" %}
+        {% if day.pause_time == 0 %}
+        <td>{{ day.param }} : {{ day.lvl_nbr }}</td>
+        {% else %}
+        <td>Pause</td>
+        {% endif %}
+        {% endfor %}
+    </tr>
+     <tr>
+         <th>Sample type / matrix</th>
+         {% for day in timeline_disp|dictsort:"day_nbr" %}
+         {% if day.pause_time == 0 %}
+         <td>{{ day.sample_type }} / {{ day.sample_matrix }}</td>
+         {% else %}
+         <td></td>
+         {% endif %}
+         {% endfor %}
+     </tr>
+    <tr>
+         <th>Delete</th>
+         {% for day in timeline_disp|dictsort:"day_nbr" %}
+         <td><form method="post">{% csrf_token %}<input type="submit" name="deletetimelineday:{{ day.id }}" value="Delete"/></form></td>
+         {% endfor %}
+     </tr>
+</table>
+
+<h5>Sequences</h5>
+{# SEQUENCE FIELD #}
+{% for sequence_def in sequence_disp %}
+<div class="boxes ml-3">
+    <p>{{ sequence_def.name }}</p><form method="post">{% csrf_token %}<input type="submit" name="add_full_seq:{{ sequence_def.id }}" value="Add all sequence"/></form>
+ <table class="table table-striped">
+     <tr>
+         <th>Order</th>
+         {% for seq in sequence_def.seq.all|dictsort:"order_number" %}
+         <td>{{ seq.order_number }}</td>
+         {% endfor %}
+     </tr>
+     <tr>
+         <th>Parameter</th>
+         {% for seq in sequence_def.seq.all|dictsort:"order_number" %}
+         {% if seq.pause_time == 0 %}
+         <td>{{ seq.param }}</td>
+         {% else %}
+         <td>{{ seq.pause_time }} min break</td>
+         {% endif %}
+         {% endfor %}
+     </tr>
+     <tr>
+         <th>Level</th>
+         {% for seq in sequence_def.seq.all|dictsort:"order_number" %}
+         {% if seq.pause_time == 0 %}
+         <td>Level {{ seq.level }}</td>
+         {% else %}
+         <td>{% if seq.break_def != "" %} for {% endif %}{{ seq.break_def }}</td>
+         {% endif %}
+         {% endfor %}
+     </tr>
+     <tr>
+         <th>Delete</th>
+         {% for seq in sequence_def.seq.all|dictsort:"order_number" %}
+         <td><form method="post">{% csrf_token %}<input type="submit" name="chooselevel:{{ seq.id }}:{{sequence_def.id}}" value="Add to timeline"/></form></td>
+         {% endfor %}
+     </tr>
+ </table>
+</div>
+{% endfor %}
+{% endblock %}
+{% block footer %}
+<a href="/lab/project/orga/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/return.svg" %}" />
+</a>
+{% endblock %}>

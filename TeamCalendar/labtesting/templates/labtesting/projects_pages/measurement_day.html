@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Project page{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/labtesting/projects/meas.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+        <h3>Project information - Measurement day</h3>
+        <p>{{ project.project_name }}</p>
+
+{# Timeline field #}
+<h5>Timeline</h5>
+<table class="table table-striped">
+    <tr>
+        <th>Measurement nbr</th>
+        <th>Sample ID</th>
+        <th>Value testplan</th>
+        <th>Device 1</th>
+        <th>Device 2</th>
+        <th>Device 3</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+         <td>3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+     </tr>
+    <tr>
+         <td>4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+     </tr>
+</table>
+
+{% endblock %}
+{% block footer %}
+<a href="/lab/project/meas/{{ project.id }}">
+    <img src="{% static "/img/icons/navigation/return.svg" %}" />
+</a>
+{% endblock %}>

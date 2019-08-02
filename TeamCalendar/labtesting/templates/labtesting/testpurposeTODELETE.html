@@ -1,0 +1,24 @@
+{% if envoi %}Votre message a bien été envoyé !{% endif %}
+<p>Here display the Timeline</p>
+<table>
+    <tr>
+        <td>Measurement comment</td>
+        <td>Sequence nbr</td>
+        <td>Level number</td>
+    </tr>
+{% for day in alltimeline %}
+    <tr>
+        <td>{{ day.measurment_comment }}</td>
+        <td>{{ day.seq_nbr }}</td>
+        <td>{{ day.lvl_nbr }}</td>
+        <td><form method="post">{% csrf_token %}<input type="submit" name="delete:{{ day.id }}" value="Delete"/></form></td>
+    </tr>
+{% endfor %}
+</table>
+
+<p>Add one</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="adddays" value="Submit"/>
+</form>

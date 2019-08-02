@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}OPIA Home{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/home.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+{% with domain="http://localhost:8000/" %}{% endwith %}
+
+    <h1 class="welcomepolicetitle">Welcome {{ name }}</h1>
+    <p class="welcomepolicetxt">This is your entry point to JARVIS. Organizing Process Instrument Analysis.</p>
+    <div class="row bottomcontainer">
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+        <div class="col-sm-10 col-md-10 col-lg-8 m-5 bgdiv">
+            <div class="row">
+                <span class="titlebox">Fields:</span>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                    <a href="{{domainstring}}lab/home">
+                        <div class="row boxes m-1">
+                            <div class="col-sm-4 col-md-12 col-lg-12 centered">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4 col-lg-4"></div>
+                                    <div class="col-sm-4 col-md-4 col-lg-4 centered">
+                                        <img src="/static/img/icons/scientist.svg" class="rocheicone" width="100%" height="100%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-md-12 col-lg-12 mt-3 mb-3 centered">
+                                <span class="boxfield">Lab part</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                    <a href="{{domainstring}}cir/home">
+                        <div class="row boxes m-1">
+                            <div class="col-sm-4 col-md-12 col-lg-12 centered">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4 col-lg-4"></div>
+                                    <div class="col-sm-4 col-md-4 col-lg-4 centered">
+                                        <img src="/static/img/icons/engineer.svg" class="rocheicone" width="100%" height="100%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-md-12 col-lg-12 mt-3 mb-3 centered">
+                                <span class="boxfield">CIR analytic Support</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                    <a href="{{domainstring}}opesupp/home">
+                        <div class="row boxes m-1">
+                            <div class="col-sm-4 col-md-12 col-lg-12 centered">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4 col-lg-4"></div>
+                                    <div class="col-sm-4 col-md-4 col-lg-4 centered">
+                                        <img src="/static/img/icons/support.svg" class="rocheicone" width="100%" height="100%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-md-12 col-lg-12 mt-3 mb-3 centered">
+                                <span class="boxfield">Operation Support</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    </div>
+{% endblock %}

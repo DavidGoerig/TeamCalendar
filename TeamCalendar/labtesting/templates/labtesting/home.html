@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Default{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/part_home.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+
+<h1 class="titlehomepart">Choose what do you want to do:</h1>
+    <div class="row bottomcontainer">
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+        <div class="col-sm-10 col-md-10 col-lg-8 m-5 bgdiv">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                    <a href="/lab/deftest">
+                        <div class="row boxes m-1 align-left">
+                            <div class="row m-2 ml-3 align-left">
+                                <i class="fas fa-book-open fa-2x facolor" width="100%" height="100%"></i>
+                                <span class="boxfield">&nbspDefault test</span><br>
+                                <span class="explanation">Containing and display all default project. Can create a new one, or edit old ones.</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                    <a href="/lab/planproj">
+                        <div class="row boxes m-1 align-left">
+                            <div class="row m-2 ml-3 align-left">
+                                <i class="fas fa-pencil-alt fa-2x facolor" width="100%" height="100%"></i>
+                                <span class="boxfield">&nbspPlan projects</span><br>
+                                <span class="explanation">Creating new projects. Choose to create it with a template or not.</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                    <a href="/lab/schedule">
+                        <div class="row boxes m-1 align-left">
+                            <div class="row m-2 ml-3 align-left">
+                                <i class="fas fa-calendar-alt fa-2x facolor" width="100%" height="100%"></i>
+                                <span class="boxfield">&nbspCalendar</span><br>
+                                <span class="explanation">Contain the instruments planning and the project schedule.</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                    <a href="/lab/workflow">
+                        <div class="row boxes m-1 align-left">
+                            <div class="row m-2 ml-3 align-left">
+                                <i class="fas fa-clipboard-list fa-2x facolor" width="100%" height="100%"> </i>
+                                <span class="boxfield">&nbspWorkflow</span><br>
+                                <span class="explanation">Contain and display all pending and finished projects to complete or modify them.</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                    <a href="/lab/dataov">
+                        <div class="row boxes m-1 align-left">
+                            <div class="row m-2 ml-3 align-left">
+                                <i class="fas fa-database fa-2x facolor" width="100%" height="100%"></i>
+                                <span class="boxfield">&nbspData overview</span><br>
+                                <span class="explanation">Contain all the raw data that result of the projects.</span><br>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                    <a href="/">
+                        <div class="row boxes m-1 align-left">
+                            <div class="row m-2 ml-3 align-left">
+                                <i class="fas fa-home fa-2x facolor" width="100%" height="100%"></i>
+                                <span class="boxfield">&nbspHome</span><br>
+                                <span class="explanation">Quit the lab part for returning to the homepage..</span><br>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    </div>
+{% endblock %}
