@@ -1,94 +1,49 @@
-<?xml version="1.0"?>
-<!--
-
-This document descide the parameters of the menu.
-Without the infomenu no menu will be displayed. Some informations are obligatory:
-    - the nbr of buttons. They need to fit with the nbrs of button (or to be superior).
-Here is the template of the document:
-
 <root>
     <infomenu>
-        <nbrbutton></nbrbutton>  -> (int) number of buttons in the menu (without buttons in dropdown)
-        <icone></icone> ->  (string) fas icone name
-        <iconetext></iconetext> -> (string) svg next to the icone
-    </infomenu>
-            1. Template menu with dropdown:
-    <buttonx> where x >= 0 && x < nbrbutton
-        <dropdownnbr></dropdown>
-        <text>Boutton1<text>  -> (string) text to display over the button
-        <href></href>
-        <icone>fas icone name</icone>
-        <dropdownx>
-            <textdrop></textdrop> -> (string) text to display over the dropdownbutton
-            <hrefdrop></hrefdrop> -> (string) link of the button
-        </dropdownx> where x >= 0 && x < dropdownnbr
-    </buttonx>
-            2. Template menu without dropdown
-    <buttonx> where x >= 0 && x < nbrbutton
-        <dropdownnbr>0</dropdown>
-        <icone>fas icone name</icone>
-        <text></text> -> (string) text to display over the button
-        <href></href> -> (string) link of the button
-    </buttonx>
-
--->
-
-<root>
-    <infomenu>
-        <nbrbutton>3</nbrbutton> <!-- gestion d'erreure x > 0 && x < 12 -->
+        <nbrbutton>2</nbrbutton> <!-- gestion d'erreure x > 0 && x < 12 -->
         <iconetext>Home</iconetext>
         <index>http://localhost:8000</index>
         <domain>http://localhost:8000/</domain>
         <icone>fas fa-home</icone>
     </infomenu>
     <button0>
-        <dropdownnbr>6</dropdownnbr>
-        <text>Labo part</text>
+        <dropdownnbr>3</dropdownnbr>
+        <text>Calendar</text>
         <href>drop0</href>
         <icone>fas fa-vial</icone>
         <dropdown0>
-            <textdrop>Home</textdrop>
-            <hrefdrop>lab/home</hrefdrop>
+            <textdrop>Year calendar</textdrop>
+            <hrefdrop>cal/year</hrefdrop>
         </dropdown0>
         <dropdown1>
-            <textdrop>Default project</textdrop>
-            <hrefdrop>lab/deftest</hrefdrop>
+            <textdrop>Sprint calendar</textdrop>
+            <hrefdrop>cal/sprint</hrefdrop>
         </dropdown1>
-        <dropdown2>
-            <textdrop>Plan project</textdrop>
-            <hrefdrop>lab/planproj</hrefdrop>
-        </dropdown2>
-        <dropdown3>
-            <textdrop>Calendar</textdrop>
-            <hrefdrop>lab/schedule</hrefdrop>
-        </dropdown3>
-        <dropdown4>
-            <textdrop>Workflow</textdrop>
-            <hrefdrop>lab/workflow</hrefdrop>
-        </dropdown4>
-        <dropdown5>
-            <textdrop>Data overview</textdrop>
-            <hrefdrop>lab/dataov</hrefdrop>
-        </dropdown5>
     </button0>
     <button1>
-        <dropdownnbr>1</dropdownnbr>
-        <text>CIR analytic support</text>
+        <dropdownnbr>5</dropdownnbr>
+        <text>Utils</text>
         <href>drop1</href>
         <icone>fas fa-diagnoses</icone>
         <dropdown0>
-            <textdrop>Home</textdrop>
-            <hrefdrop>cir/home</hrefdrop>
+            <textdrop>Wiki/textdrop</textdrop>
+            <hrefdrop><center>cal/wiki</center></hrefdrop>
         </dropdown0>
+        <dropdown1>
+            <textdrop>Todo (team)</textdrop>
+            <hrefdrop>cal/todo</hrefdrop>
+        </dropdown1>
+        <dropdown2>
+            <textdrop>Article</textdrop>
+            <hrefdrop>cal/article</hrefdrop>
+        </dropdown2>
+        <dropdown3>
+            <textdrop>Dashboard</textdrop>
+            <hrefdrop>cal/dashboard</hrefdrop>
+        </dropdown3>
+        <dropdown4>
+            <textdrop>Management desc</textdrop>
+            <hrefdrop>cal/mgmt</hrefdrop>
+        </dropdown4>
     </button1>
-    <button2>
-        <dropdownnbr>1</dropdownnbr>
-        <text>Operation support</text>
-        <href>drop2</href>
-        <icone>fas fa-chart-bar</icone>
-        <dropdown0>
-            <textdrop>Home</textdrop>
-            <hrefdrop>opesupp/home</hrefdrop>
-        </dropdown0>
-    </button2>
 </root>

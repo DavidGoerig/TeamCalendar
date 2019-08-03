@@ -28,6 +28,129 @@ def home(request):
     return render(request, 'labtesting/home.html', locals())
 
 """
+    This function define the page: year
+
+    Args:
+        request: object containing view information (GET, POST, temp variables, etc).
+
+    Returns:
+        render: with local variables and a link to the template: calendar/year.html
+"""
+@login_required
+def year(request):
+    default = "Year"
+    return render(request, 'calendar/year.html', locals())
+
+
+"""
+    This function define the page: sprint
+
+    Args:
+        request: object containing view information (GET, POST, temp variables, etc).
+
+    Returns:
+        render: with local variables and a link to the template: calendar/sprint.html
+"""
+@login_required
+def sprint(request):
+    default = "Sprint"
+    return render(request, 'calendar/sprint.html', locals())
+
+"""
+    This function define the page: wiki
+
+    Args:
+        request: object containing view information (GET, POST, temp variables, etc).
+
+    Returns:
+        render: with local variables and a link to the template: calendar/wiki.html
+"""
+@login_required
+def wiki(request):
+    default = "Wiki"
+    return render(request, 'calendar/wiki.html', locals())
+
+"""
+    This function define the page: todo
+
+    Args:
+        request: object containing view information (GET, POST, temp variables, etc).
+
+    Returns:
+        render: with local variables and a link to the template: calendar/todo.html
+"""
+@login_required
+def todo(request):
+    default = "todo"
+    return render(request, 'calendar/todo.html', locals())
+
+"""
+    This function define the page: article
+
+    Args:
+        request: object containing view information (GET, POST, temp variables, etc).
+
+    Returns:
+        render: with local variables and a link to the template: calendar/article.html
+"""
+@login_required
+def article(request):
+    default = "article"
+    return render(request, 'calendar/article.html', locals())
+
+"""
+    This function define the page: dashboard
+
+    Args:
+        request: object containing view information (GET, POST, temp variables, etc).
+
+    Returns:
+        render: with local variables and a link to the template: calendar/dashboard.html
+"""
+@login_required
+def dashboard(request):
+    default = "dashboard"
+    return render(request, 'calendar/dashboard.html', locals())
+
+"""
+    This function define the page: mgmt
+
+    Args:
+        request: object containing view information (GET, POST, temp variables, etc).
+
+    Returns:
+        render: with local variables and a link to the template: calendar/mgmt.html
+"""
+@login_required
+def mgmt(request):
+    default = "mgmt"
+    return render(request, 'calendar/mgmt.html', locals())
+
+"""
+    This function define the page: 
+
+    Args:
+        request: object containing view information (GET, POST, temp variables, etc).
+
+    Returns:
+        render: with local variables and a link to the template: 
+"""
+@login_required
+def sprint_def(request, sprint_id):
+    default = "sprint def"
+    return render(request, 'calendar/sprint_def.html', locals())
+
+
+
+
+
+
+
+
+ #################################################################################################
+
+
+"""
     This function define the page: test defaults
 
     Args:

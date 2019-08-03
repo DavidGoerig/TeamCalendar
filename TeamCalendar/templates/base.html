@@ -12,9 +12,9 @@
     {% load static %}
     <script type="text/javascript" src="{% static "js/menu_creation.js" %}"></script>
     <link href="{% static "/css/menu.css" %}" rel="stylesheet" type="text/css" />
-    <link rel="icon" href="{% static "img/icons/Jarvis-icon.png" %}">
+    <link rel="icon" href="{% static "img/icons/logo.svg" %}">
     {% block scriptncss %}{% endblock %}
-   <title>{% block title %}<b>JARVIS</b> Organizing Process Instrument Analysis{% endblock %}</title>
+   <title>{% block title %}<b>TeamCalendar</b> Organizing Team Management Process{% endblock %}</title>
 </head>
 <body>
     <header></header>
@@ -24,7 +24,7 @@
                             <i class="fas fa-bars facolor fa-lg"></i>
                         </button>
                         <span class="navbar-title-txt">
-                            JARVIS
+                            Sprint Team Calendar
                         </span>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="nav navbar-nav ml-auto">
@@ -43,7 +43,7 @@
                                 {% else %}
                                 {% endif %}
                             </ul>
-                            <img src="/static/img/icons/roche-logo.png" class="rocheicone" width="55px" height="30px">
+                            <img src="/static/img/icons/logo.svg" class="rocheicone" width="100px" height="80px">
                         </div> <!-- SupportedContent -->
                     </div> <!-- container-fluid -->
                 </nav>

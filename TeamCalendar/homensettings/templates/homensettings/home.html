@@ -6,18 +6,23 @@
 {% endblock %}
 {% block content %}
 {% with domain="http://localhost:8000/" %}{% endwith %}
+//////// FAire une deuxieme box, la premiere pour calendar, l'autre pour utils
+//// Faire une categorie DONE pour ecrire et autogenerer les PDF (avec les trucs fait pendant chaque partie (intersprint, etc.))
+//// En faire pour chaque partie possible (3)
+//// Rapport d'avancement: Pour chaques taches, qui mérite explication( toryotisme) Faire que ca auto genere les rapports d'avancement
+//// faire un truc pour gerer les deadline et gerer les liens entre les gens 
 
     <h1 class="welcomepolicetitle">Welcome {{ name }}</h1>
     <p class="welcomepolicetxt">This is your entry point to JARVIS. Organizing Process Instrument Analysis.</p>
-    <div class="row bottomcontainer">
+    <div class="row">
         <div class="col-sm-1 col-md-1 col-lg-2"></div>
         <div class="col-sm-10 col-md-10 col-lg-8 m-5 bgdiv">
             <div class="row">
-                <span class="titlebox">Fields:</span>
+                <span class="titlebox">Calendar:</span>
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-4 centered">
-                    <a href="{{domainstring}}lab/home">
+                    <a href="{{domainstring}}cal/year">
                         <div class="row boxes m-1">
                             <div class="col-sm-4 col-md-12 col-lg-12 centered">
                                 <div class="row">
@@ -28,13 +33,13 @@
                                 </div>
                             </div>
                             <div class="col-sm-8 col-md-12 col-lg-12 mt-3 mb-3 centered">
-                                <span class="boxfield">Lab part</span>
+                                <span class="boxfield">Year calendar</span>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-4 centered">
-                    <a href="{{domainstring}}cir/home">
+                    <a href="{{domainstring}}cal/sprint">
                         <div class="row boxes m-1">
                             <div class="col-sm-4 col-md-12 col-lg-12 centered">
                                 <div class="row">
@@ -45,24 +50,103 @@
                                 </div>
                             </div>
                             <div class="col-sm-8 col-md-12 col-lg-12 mt-3 mb-3 centered">
-                                <span class="boxfield">CIR analytic Support</span>
+                                <span class="boxfield">Sprint calendar (d'abord un bouton par sprint)</span>
                             </div>
                         </div>
                     </a>
                 </div>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+        <div class="col-sm-10 col-md-10 col-lg-8 m-5 bgdiv">
+            <div class="row">
+                <span class="titlebox">Utils:</span>
+            </div>
+            <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-4 centered">
-                    <a href="{{domainstring}}opesupp/home">
+                    <a href="{{domainstring}}cal/wiki">
                         <div class="row boxes m-1">
                             <div class="col-sm-4 col-md-12 col-lg-12 centered">
                                 <div class="row">
                                     <div class="col-sm-4 col-md-4 col-lg-4"></div>
                                     <div class="col-sm-4 col-md-4 col-lg-4 centered">
-                                        <img src="/static/img/icons/support.svg" class="rocheicone" width="100%" height="100%">
+                                        <img src="/static/img/icons/scientist.svg" class="rocheicone" width="100%" height="100%">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-8 col-md-12 col-lg-12 mt-3 mb-3 centered">
-                                <span class="boxfield">Operation Support</span>
+                                <span class="boxfield">Wiki / textdrop</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                    <a href="{{domainstring}}cal/todo">
+                        <div class="row boxes m-1">
+                            <div class="col-sm-4 col-md-12 col-lg-12 centered">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4 col-lg-4"></div>
+                                    <div class="col-sm-4 col-md-4 col-lg-4 centered">
+                                        <img src="/static/img/icons/engineer.svg" class="rocheicone" width="100%" height="100%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-md-12 col-lg-12 mt-3 mb-3 centered">
+                                <span class="boxfield">TODO</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                    <a href="{{domainstring}}cal/article">
+                        <div class="row boxes m-1">
+                            <div class="col-sm-4 col-md-12 col-lg-12 centered">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4 col-lg-4"></div>
+                                    <div class="col-sm-4 col-md-4 col-lg-4 centered">
+                                        <img src="/static/img/icons/scientist.svg" class="rocheicone" width="100%" height="100%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-md-12 col-lg-12 mt-3 mb-3 centered">
+                                <span class="boxfield">Article (par field: hardware, software, ia, etc.)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                    <a href="{{domainstring}}cal/dashboard">
+                        <div class="row boxes m-1">
+                            <div class="col-sm-4 col-md-12 col-lg-12 centered">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4 col-lg-4"></div>
+                                    <div class="col-sm-4 col-md-4 col-lg-4 centered">
+                                        <img src="/static/img/icons/scientist.svg" class="rocheicone" width="100%" height="100%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-md-12 col-lg-12 mt-3 mb-3 centered">
+                                <span class="boxfield">Dashboard</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 centered">
+                    <a href="{{domainstring}}cal/mgmt">
+                        <div class="row boxes m-1">
+                            <div class="col-sm-4 col-md-12 col-lg-12 centered">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4 col-lg-4"></div>
+                                    <div class="col-sm-4 col-md-4 col-lg-4 centered">
+                                        <img src="/static/img/icons/scientist.svg" class="rocheicone" width="100%" height="100%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-md-12 col-lg-12 mt-3 mb-3 centered">
+                                <span class="boxfield">Management processus</span>
                             </div>
                         </div>
                     </a>

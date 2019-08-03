@@ -12,6 +12,20 @@ from . import views
 
 urlpatterns = [
     path('home', views.home),
+
+    path('year', views.year),
+    path('sprint', views.sprint),
+    path('wiki', views.wiki),
+    path('todo', views.todo),
+    path('article', views.article),
+    path('dashboard', views.dashboard),
+    path('mgmt', views.mgmt),
+    path('sprint/def/<int:sprint_id>', views.sprint_def),
+
+
+
+
+
     path('deftest', views.deftest),
     path('planproj', views.planproject),
     path('schedule', views.schedule),

@@ -150,3 +150,36 @@ class Project(models.Model):
     checks = models.ForeignKey(Checks, on_delete=models.CASCADE, null=True)
     def __str__(self):
         return self.project_name
+
+##################################################################
+
+class Sprint(models.Model):
+    sprint_name = models.CharField(max_length=200, unique=True)
+    number = models.IntegerField(default=0)
+    date_start = models.DateField()
+    date_end = models.DateField()
+    descriptif = models.CharField(max_length=2000)
+    sprint_part = models.ManyToManyField(SprintPart)
+
+class Part(models.Model):
+    part_type = models.CharField(choices=PART_CHOICES, default="INTER SPRINT", max_length=200)
+    meetings = models.ManyToManyField(Meeting)
+    rapport_mensuel = models.ManyToManyField(Article)
+    date_start = models.DateField()
+    date_end = models.DateField()
+    done = models.ManyToManyField(Article)
+
+class Meeting(models.Model):
+    mail_alert = models.BooleanField(default=False)
+    title  = models.CharField(max_length=200)
+    date = models.DateField()
+    descriptif = models.CharField(max_length=2000)
+
+class Article(models.Model):
+    descriptif = models.CharField(max_length=2000)
+    auteur = (choices=TEAM_CHOICES, default="David", max_length=200)
+
+class KnowledgeArticle(models.Model):
+    field = models.CharField(choices=FIELD_CHOICES, default="SOFTWARE", max_length=200)
+    descriptif = models.CharField(max_length=2000)
+    auteur = (choices=TEAM_CHOICES, default="David", max_length=200)
