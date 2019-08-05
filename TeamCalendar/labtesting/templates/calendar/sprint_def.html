@@ -1,5 +1,85 @@
 {% extends "base.html" %}
-{% block title %}Default{% endblock %}
-{% block content %}
-    <p>{{ default }}</p>
+{% load static %}
+{% block title %}Project page{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/sprint_def.css" %}" rel="stylesheet" type="text/css" />
 {% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-3 col-md-3 col-lg-3 unscrollable p-5" id="nomovediv">
+        <h3 class="centered white p-2">Sprint information</h3>
+
+        <span class="white pt-5">Nom du sprint:</span><p>{{ sprint.sprint_name }}</p>
+        <span class="white pt-3">Numéro du sprint:</span> <p>{{ sprint.number }}</p>
+        <span class="white pt-3">Date de début:</span> <p>{{ sprint.date_start }}</p>
+        <span class="white pt-3">Date de fin:</span> <p>{{ sprint.date_end }}</p>
+        <span class="white pt-3">Description:</span> <p>{{ sprint.descriptif }}</p>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-9" id="movediv" >
+        <div class="row pt-5">
+            <div class="col-sm-0 col-md-1 col-lg-1"></div>
+            <div class="col-sm-12 col-md-10 col-lg-10">
+                {% for part in sprint_part %}
+                    <div class="boxes-parts mt-5 p-3">
+                        <p><span>Part name:</span>{{ part.part_type }}</p>
+                        <p><span>Date de début:</span>{{ part.date_start }}</p>
+                        <p><span>Date de fin:</span>{{ part.date_end }}</p>
+                        <p><span>PLD mis à jour pour le rendez-vous?</span>{{part.is_pld_update}}</p>
+                        <p><span>Est-ce que le rendez-vous est prêt?</span>{{part.is_meeting_ready}}</p>
+                        <p>Rendez-vous fixés pour cette partie:</p>
+                        {% for meetings in part.meetings.all %}
+                            <div class="row">
+                                <div class="col-sm-0 col-md-2 col-lg-2"></div>
+                                <div class="boxes pl-2 mt-3 col-sm-12 col-md-8 col-lg-8">
+                                    <h5>{{ meetings.title }}</h5>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                                Date du meeting: <p>{{ meetings.date }}</p>
+                                            </div>
+                                            <div class="col-sm-12 col-md-8 col-lg-8">
+                                                Descriptif: <p>{{ meetings.descriptif }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="m-2">
+                                                <form method="post" style="display: inline-block">{% csrf_token %}<input type="submit" name="delevent:{{meetings.id}}" value="Delete"/></form>
+                                        </div>
+                                </div>
+                                <div class="col-sm-0 col-md-2 col-lg-2"></div>
+                            </div>
+                        {% endfor %}
+                        Créer un évènement:
+                        <form method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input type="submit" name="addevent:{{ part.id }}" value="Submit"/>
+                        </form>
+                        <p>Rapports de partie:</p>
+                        {% for rapport in part.rapport_mensuel.all %}
+                            <div class="row">
+                                <div class="col-sm-0 col-md-2 col-lg-2"></div>
+                                <div class="boxes pl-2 mt-3 col-sm-12 col-md-8 col-lg-8">
+                                    <a href="/cal/rapport/{{sprint.id}}/{{ rapport.id }}">
+                                        <div class="pl-2 mt-3">
+                                            <h5>Rapport de {{ rapport.auteur }}</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-sm-0 col-md-2 col-lg-2"></div>
+                            </div>
+                        {% endfor %}
+                        <a href="/cal/rapport/create/{{sprint.id}}/{{part.id}}"><p class="unscrollable mt-3 white centered">Ecrire mon rapport.</p></a>
+                    </div>
+                {% endfor %}
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+<div style="display: inline-block">
+    <a href="/cal/sprints" style="display: inline-block">
+        <img src="{% static "/img/icons/navigation/return.svg" %}" />
+    </a>
+</div>
+{% endblock %}>

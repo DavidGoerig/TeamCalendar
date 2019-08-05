@@ -153,22 +153,6 @@ class Project(models.Model):
 
 ##################################################################
 
-class Sprint(models.Model):
-    sprint_name = models.CharField(max_length=200, unique=True)
-    number = models.IntegerField(default=0)
-    date_start = models.DateField()
-    date_end = models.DateField()
-    descriptif = models.CharField(max_length=2000)
-    sprint_part = models.ManyToManyField(SprintPart)
-
-class Part(models.Model):
-    part_type = models.CharField(choices=PART_CHOICES, default="INTER SPRINT", max_length=200)
-    meetings = models.ManyToManyField(Meeting)
-    rapport_mensuel = models.ManyToManyField(Article)
-    date_start = models.DateField()
-    date_end = models.DateField()
-    done = models.ManyToManyField(Article)
-
 class Meeting(models.Model):
     mail_alert = models.BooleanField(default=False)
     title  = models.CharField(max_length=200)
@@ -177,9 +161,32 @@ class Meeting(models.Model):
 
 class Article(models.Model):
     descriptif = models.CharField(max_length=2000)
-    auteur = (choices=TEAM_CHOICES, default="David", max_length=200)
+    auteur = models.CharField(choices=TEAM_CHOICES, default="David", max_length=200)
+
+class Rapport(models.Model):
+    auteur = models.CharField(choices=TEAM_CHOICES, default="David", max_length=200)
+    nbr_of_points_todo = models.IntegerField(default=0)
+    nbr_of_points_done = models.IntegerField(default=0)
+    descriptif_done = models.TextField()
 
 class KnowledgeArticle(models.Model):
     field = models.CharField(choices=FIELD_CHOICES, default="SOFTWARE", max_length=200)
     descriptif = models.CharField(max_length=2000)
-    auteur = (choices=TEAM_CHOICES, default="David", max_length=200)
+    auteur = models.CharField(choices=TEAM_CHOICES, default="David", max_length=200)
+
+class Part(models.Model):
+    part_type = models.CharField(choices=PART_CHOICES, default="INTER SPRINT", max_length=200)
+    meetings = models.ManyToManyField(Meeting)
+    rapport_mensuel = models.ManyToManyField(Rapport)
+    date_start = models.DateField()
+    date_end = models.DateField()
+    is_pld_update = models.BooleanField(default=False)
+    is_meeting_ready = models.BooleanField(default=False)
+
+class Sprint(models.Model):
+    sprint_name = models.CharField(max_length=200, unique=True)
+    number = models.IntegerField(default=0)
+    date_start = models.DateField()
+    date_end = models.DateField()
+    descriptif = models.CharField(max_length=2000)
+    sprint_part = models.ManyToManyField(Part)

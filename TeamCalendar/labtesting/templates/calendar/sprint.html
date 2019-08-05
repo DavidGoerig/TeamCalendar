@@ -1,5 +1,36 @@
 {% extends "base.html" %}
-{% block title %}Default{% endblock %}
+{% load static %}
+{% block title %}Projects display{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/sprint_display.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
 {% block content %}
-    <p>{{ default }}</p>
+
+<div class="row scrollable">
+    <div class="col-sm-12 col-md-3 col-lg-3" >
+        <h3 class="ml-5">Sprints:</h3>
+    </div>
+    <div class="col-sm-12 col-md-7 col-lg-7 scrollable" >
+        {% for sprint in sprints %}
+        <a href="/cal/sprint/def/{{ sprint.id }}">
+            <div class="boxes{% if sprint.number == current %}-current{% endif %} pl-2 mt-3">
+    	        <h5>{{ sprint.sprint_name }}</h5>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            Sprint number: <p>{{ sprint.number }}</p>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            Date start: <p>{{ sprint.date_start }}</p>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            Date end: <p>{{ sprint.date_end }}</p>
+                        </div>
+                    </div>
+            </div>
+        </a>
+        {% empty %}
+            <p>Aucun article.</p>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

@@ -1,13 +1,17 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 from datetime import datetime
 from .forms import ProjectForm, InformationForm, TimelineDaysForm, NameForm, ContentForm, ParametersLevelForm, LevelDefinitionForm, SetupForm, SequenceDefinitionForm, DeviceNamesForm, SequencesForm, ChecksForm
 from .models import Project, Setup, Levels, SequenceDefinition, Sequences, TimelineDays
+
 from .settings import *
 from .create_project_from_template import *
 from django.db import IntegrityError
+
+from .models import Sprint, Part, KnowledgeArticle, Rapport, Article, Meeting
+from .forms import MeetingForm, RapportForm
 
 ##
 ##  Each url are defined in the file /labtesting/urls.py
@@ -54,6 +58,8 @@ def year(request):
 @login_required
 def sprint(request):
     default = "Sprint"
+    sprints = Sprint.objects.all()
+    current = 3
     return render(request, 'calendar/sprint.html', locals())
 
 """
@@ -137,13 +143,54 @@ def mgmt(request):
 """
 @login_required
 def sprint_def(request, sprint_id):
-    default = "sprint def"
+    try:
+        sprint = Sprint.objects.get(id=sprint_id)
+    except Sprint.DoesNotExist:
+        sprint = None
+    if sprint == None:
+        raise Http404
+    sprint_part = sprint.sprint_part.all()
+    for iteration in request.POST:
+        id = iteration.split(":", 2)
+        if id[0] == "addevent":
+            form = MeetingForm(request.POST)
+            if form.is_valid():
+                new = form.save()
+                part = Part.objects.get(id=id[1])
+                part.meetings.add(new)
+            return HttpResponseRedirect('/cal/sprint/def/' + str(sprint_id))
+        elif id[0] == "delevent":
+            Meeting.objects.get(id=id[1]).delete()
+            return HttpResponseRedirect('/cal/sprint/def/' + str(sprint_id))
+    form = MeetingForm()
     return render(request, 'calendar/sprint_def.html', locals())
 
 
+@login_required
+def rapport_def(request, sprint_id, rapport_id):
+    try:
+        rapport = Rapport.objects.get(id=rapport_id)
+    except Rapport.DoesNotExist:
+        raise Http404
+    form = RapportForm(request.POST or None, instance=rapport)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect('/cal/rapport/' + str(sprint_id) + "/" + str(rapport_id))
+    return render(request, 'calendar/rapport.html', locals())
 
 
-
+@login_required
+def rapport_create(request, sprint_id, part_id):
+    try:
+        part = Part.objects.get(id=part_id)
+    except Part.DoesNotExist:
+        part = None
+    if part == None:
+        raise Http404
+    new_rapport = Rapport(auteur="David", descriptif_done="")
+    new_rapport.save()
+    part.rapport_mensuel.add(new_rapport)
+    return redirect('/cal/rapport/' + str(sprint_id) + '/' + str(new_rapport.id))
 
 
 

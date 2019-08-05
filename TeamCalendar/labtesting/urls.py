@@ -21,6 +21,8 @@ urlpatterns = [
     path('dashboard', views.dashboard),
     path('mgmt', views.mgmt),
     path('sprint/def/<int:sprint_id>', views.sprint_def),
+    path('rapport/<int:sprint_id>/<int:rapport_id>', views.rapport_def),
+    path('rapport/create/<int:sprint_id>/<int:part_id>', views.rapport_create),
 
 
 

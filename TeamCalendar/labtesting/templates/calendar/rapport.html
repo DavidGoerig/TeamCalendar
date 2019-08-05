@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Project page{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/sprint_def.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+<div class="row">
+        <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" name="rapport" value="Save rapport"/>
+        </form>
+</div>
+{% endblock %}
+{% block footer %}
+<div style="display: inline-block">
+    <a href="/cal/sprint/def/{{sprint_id}}" style="display: inline-block">
+        <img src="{% static "/img/icons/navigation/return.svg" %}" />
+    </a>
+</div>
+{% endblock %}>

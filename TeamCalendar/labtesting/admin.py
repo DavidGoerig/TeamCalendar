@@ -3,7 +3,9 @@ from django.db import models
 from django.forms import Textarea
 
 from .models import Levels, Information, Content, Checks, TimelineDays, LevelDefinition, SequenceDefinition, DeviceNames, ParametersNames, Setup, InstrumentDefinition, Instrument,Project, Sequences
+######
 
+from .models import Sprint, Part, Meeting, Article, KnowledgeArticle, Rapport
 """
     The aim of that is to add all this OMR to the admin site.
     
@@ -31,3 +33,16 @@ class ContentAdmin(admin.ModelAdmin):
     }
 
 admin.site.register(Content, ContentAdmin)
+
+################################
+admin.site.register(Sprint)
+admin.site.register(Part)
+admin.site.register(Meeting)
+admin.site.register(Article)
+admin.site.register(KnowledgeArticle)
+
+class RapportAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': Textarea(attrs={'rows':8, 'cols':80})}
+    }
+admin.site.register(Rapport, RapportAdmin)

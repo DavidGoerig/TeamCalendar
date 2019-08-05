@@ -8,6 +8,11 @@
     box-shadow: 2px 2px 3px 3px #bfbfbf;
 }
 
+.boxes-parts {
+    background-color: white;
+    box-shadow: 3px 3px 3px 3px #7FB2E5;
+}
+
 .boxfield {
     font-family: 'Poppins', sans-serif;
     color: #7FB2E5;

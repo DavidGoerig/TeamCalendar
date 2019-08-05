@@ -2,6 +2,9 @@ from django import forms
 from .models import Project, Information, Content, Checks, TimelineDays, LevelDefinition, SequenceDefinition, DeviceNames, ParametersNames, Setup, InstrumentDefinition, Instrument, Levels, Sequences
 from homensettings.models import DevicesTypes, Area
 
+####################
+from .models import Sprint, Part, Meeting, Article, KnowledgeArticle, Rapport
+
 class NameForm(forms.Form):
     name = forms.CharField(max_length=100)
 
@@ -80,3 +83,39 @@ class SequencesForm(forms.ModelForm):
     class Meta:
         model = Sequences
         fields = ('name', 'sample_matrix', 'sample_type',)
+
+#####################################################################
+
+class SprintForm(forms.ModelForm):
+    class Meta:
+        model = Sprint
+        fields = '__all__'
+
+
+class PartForm(forms.ModelForm):
+    class Meta:
+        model = Part
+        fields = '__all__'
+
+
+class MeetingForm(forms.ModelForm):
+    class Meta:
+        model = Meeting
+        fields = '__all__'
+
+
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = '__all__'
+
+
+class KnowledgeArticleForm(forms.ModelForm):
+    class Meta:
+        model = KnowledgeArticle
+        fields = '__all__'
+
+class RapportForm(forms.ModelForm):
+    class Meta:
+        model = Rapport
+        fields = '__all__'
