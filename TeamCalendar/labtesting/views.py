@@ -43,6 +43,11 @@ def home(request):
 @login_required
 def year(request):
     default = "Year"
+    sprints = Sprint.objects.all()
+    meetings = Meeting.objects.all()
+    parts = Part.objects.all()
+    #Rajouter la date d'aujourd'hui avec le truc python
+    #Boucler d'abord dans les sprints, puis dans les parties pe????
     return render(request, 'calendar/year.html', locals())
 
 
@@ -151,7 +156,7 @@ def sprint_def(request, sprint_id):
         raise Http404
     sprint_part = sprint.sprint_part.all()
     for iteration in request.POST:
-        id = iteration.split(":", 2)
+        id = iteration.split(":", 3)
         if id[0] == "addevent":
             form = MeetingForm(request.POST)
             if form.is_valid():
@@ -162,6 +167,23 @@ def sprint_def(request, sprint_id):
         elif id[0] == "delevent":
             Meeting.objects.get(id=id[1]).delete()
             return HttpResponseRedirect('/cal/sprint/def/' + str(sprint_id))
+        elif id[0] == "pld":
+            part = Part.objects.get(id=id[1])
+            boolean = False
+            if id[2] == "True":
+                boolean = True
+            part.is_pld_update = boolean
+            part.save()
+            return HttpResponseRedirect('/cal/sprint/def/' + str(sprint_id))
+        elif id[0] == "rdv":
+            part = Part.objects.get(id=id[1])
+            boolean = False
+            if id[2] == "True":
+                boolean = True
+            part.is_meeting_ready = boolean
+            part.save()
+            return HttpResponseRedirect('/cal/sprint/def/' + str(sprint_id))
+
     form = MeetingForm()
     return render(request, 'calendar/sprint_def.html', locals())
 

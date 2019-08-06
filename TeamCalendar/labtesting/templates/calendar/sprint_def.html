@@ -2,7 +2,14 @@
 {% load static %}
 {% block title %}Project page{% endblock %}
 {% block scriptncss %}
+    <script type="text/javascript" src="{% static "js/checklist.js" %}"></script>
     <link href="{% static "/css/sprint_def.css" %}" rel="stylesheet" type="text/css" />
+    <link href="{% static '/js/fullcalendar/packages/core/main.css' %}" rel='stylesheet' />
+    <link href="{% static '/js/fullcalendar/packages/daygrid/main.css' %}" rel='stylesheet' />
+
+    <script src="{% static '/js/fullcalendar/packages/core/main.js' %}"></script>
+    <script src="{% static '/js/fullcalendar/packages/daygrid/main.js' %}"></script>
+
 {% endblock %}
 {% block content %}
 <div class="row">
@@ -21,12 +28,23 @@
             <div class="col-sm-12 col-md-10 col-lg-10">
                 {% for part in sprint_part %}
                     <div class="boxes-parts mt-5 p-3">
-                        <p><span>Part name:</span>{{ part.part_type }}</p>
-                        <p><span>Date de début:</span>{{ part.date_start }}</p>
-                        <p><span>Date de fin:</span>{{ part.date_end }}</p>
-                        <p><span>PLD mis à jour pour le rendez-vous?</span>{{part.is_pld_update}}</p>
-                        <p><span>Est-ce que le rendez-vous est prêt?</span>{{part.is_meeting_ready}}</p>
-                        <p>Rendez-vous fixés pour cette partie:</p>
+                        <h3 class="centered">{{ part.part_type }}</h3>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <p><span style="color:black;">Date de début:&nbsp</span>{{ part.date_start }}</p>
+                                <p><span style="color:black;">Date de fin:&nbsp</span>{{ part.date_end }}</p>
+                                <p><span style="color:black;">PLD mis à jour pour le rendez-vous?&nbsp</span></p>
+                                <p> {% if  part.is_pld_update == False%}<span style="color:red;">Non.</span> {% else %} <span style="color:green;">Oui.</span> {% endif %}</p>
+                                <p><span style="color:black;">Est-ce que le rendez-vous est prêt?&nbsp</span></p>
+                                <p> {% if part.is_meeting_ready == False%}<span style="color:red;">Non.</span> {% else %} <span style="color:green;">Oui.</span> {% endif %}</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <h3 class="text-center">Update checklist:   </h3>
+                                <p>PLD mis à jour:<form method="post" style="display: inline-block">{% csrf_token %}<input type="submit" {% if  part.is_pld_update == False%}name="pld:{{ part.id }}:True" value="&#x2714;" {% else %} name="pld:{{ part.id }}:False" value="&#x274C;" {% endif %}/></form></p>
+                                <p>Rendez-vous préparé:<form method="post" style="display: inline-block">{% csrf_token %}<input type="submit" {% if  part.is_meeting_ready == False%}name="rdv:{{ part.id }}:True" value="&#x2714;" {% else %} name="rdv:{{ part.id }}:False" value="&#x274C;" {% endif %}/></form></p>
+                            </div>
+                        </div>
+                        <h4>Rendez-vous fixés pour cette partie:</h4>
                         {% for meetings in part.meetings.all %}
                             <div class="row">
                                 <div class="col-sm-0 col-md-2 col-lg-2"></div>
@@ -47,13 +65,14 @@
                                 <div class="col-sm-0 col-md-2 col-lg-2"></div>
                             </div>
                         {% endfor %}
-                        Créer un évènement:
+                        <h5>Créer un évènement:</h5>
+                        <p>Format de la date: AAAA-MM-DD</p>
                         <form method="post">
                                 {% csrf_token %}
                                 {{ form.as_p }}
                                 <input type="submit" name="addevent:{{ part.id }}" value="Submit"/>
                         </form>
-                        <p>Rapports de partie:</p>
+                        <h4>Rapports de partie:</h4>
                         {% for rapport in part.rapport_mensuel.all %}
                             <div class="row">
                                 <div class="col-sm-0 col-md-2 col-lg-2"></div>
