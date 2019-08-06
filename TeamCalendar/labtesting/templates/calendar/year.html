@@ -2,6 +2,12 @@
 {% load static %}
 {% block title %}Project page{% endblock %}
 {% block scriptncss %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether-tooltip/1.2.0/js/tooltip.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether-tooltip/1.2.0/css/tooltip-theme-arrows.min.css">
+
+
     <script type="text/javascript" src="{% static "js/checklist.js" %}"></script>
     <link href="{% static "/css/sprint_def.css" %}" rel="stylesheet" type="text/css" />
     <link href="{% static '/js/fullcalendar/packages/core/main.css' %}" rel='stylesheet' />
@@ -20,6 +26,15 @@
             defaultView: 'dayGridMonth',
             defaultDate: '2019-08-12',
             eventColor: 'green',
+          eventRender: function(info) {
+                var tooltip = new Tooltip(info.el, {
+                    title: info.event.extendedProps.description,
+                    placement: 'top',
+                    trigger: 'hover',
+                    container: 'body'
+                });
+          },
+
             events: [
               {% for meeting in meetings %}
                 {
