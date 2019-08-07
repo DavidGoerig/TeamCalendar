@@ -3,9 +3,9 @@
 {% block title %}Project page{% endblock %}
 {% block scriptncss %}
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether-tooltip/1.2.0/js/tooltip.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether-tooltip/1.2.0/css/tooltip-theme-arrows.min.css">
+    <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js">
 
 
     <script type="text/javascript" src="{% static "js/checklist.js" %}"></script>
@@ -26,14 +26,14 @@
             defaultView: 'dayGridMonth',
             defaultDate: '2019-08-12',
             eventColor: 'green',
-          eventRender: function(info) {
+            eventRender: function(info) {
                 var tooltip = new Tooltip(info.el, {
                     title: info.event.extendedProps.description,
                     placement: 'top',
                     trigger: 'hover',
                     container: 'body'
                 });
-          },
+            },
 
             events: [
               {% for meeting in meetings %}
@@ -48,7 +48,8 @@
                     title: "{{ sprint.sprint_name }}",
                     start: "{{ sprint.date_start|date:"Y-m-d"  }}",
                     end: "{{ sprint.date_end|date:"Y-m-d"  }}",
-                    description: "{{ meeting.descriptif }}",
+                    description: "{{ sprint.descriptif }}",
+                    url: "/cal/sprint/def/{{ sprint.id }}",
                     color: 'purple',
                 },
             {% endfor %}
