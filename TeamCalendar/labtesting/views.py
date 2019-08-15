@@ -10,7 +10,7 @@ from .settings import *
 from .create_project_from_template import *
 from django.db import IntegrityError
 
-from .models import Sprint, Part, KnowledgeArticle, Rapport, Article, Meeting
+from .models import Sprint, Part, KnowledgeArticle, Rapport, WikiArticle, Meeting
 from .forms import MeetingForm, RapportForm
 
 ##

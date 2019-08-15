@@ -153,15 +153,23 @@ class Project(models.Model):
 
 ##################################################################
 
+class Task(models.Model):
+    is_done = models.BooleanField(default=False)
+    title = models.CharField(max_length=200)
+    desc = models.TextField()
+
+class Todo(models.Model):
+    todo = models.ManyToManyField(Task)
+
 class Meeting(models.Model):
     mail_alert = models.BooleanField(default=False)
     title  = models.CharField(max_length=200)
     date = models.DateField()
     descriptif = models.CharField(max_length=2000)
 
-class Article(models.Model):
+class WikiArticle(models.Model):
+    links = models.CharField(max_length=500)
     descriptif = models.CharField(max_length=2000)
-    auteur = models.CharField(choices=TEAM_CHOICES, default="David", max_length=200)
 
 class Rapport(models.Model):
     auteur = models.CharField(choices=TEAM_CHOICES, default="David", max_length=200)

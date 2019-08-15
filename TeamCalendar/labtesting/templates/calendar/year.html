@@ -17,7 +17,6 @@
     <script src="{% static '/js/fullcalendar/packages/daygrid/main.js' %}"></script>
     <script>
         $(document).ready(function(e) {
-            alert("OUI OUI")
           var calendarEl = document.getElementById('calendar');
 
 
@@ -69,7 +68,6 @@
     </script>
 {% endblock %}
 {% block content %}
-    <p>{{ default }}</p>
-    <p>YEYEYEYEYEY</p>
+    <h5>Calendrier:</h5>
     <div id='calendar' class="calendar-year"></div>
 {% endblock %}

@@ -6,14 +6,14 @@
 {% endblock %}
 {% block content %}
 {% with domain="http://localhost:8000/" %}{% endwith %}
-//////// FAire une deuxieme box, la premiere pour calendar, l'autre pour utils
+<!-- //////// FAire une deuxieme box, la premiere pour calendar, l'autre pour utils
 //// Faire une categorie DONE pour ecrire et autogenerer les PDF (avec les trucs fait pendant chaque partie (intersprint, etc.))
 //// En faire pour chaque partie possible (3)
 //// Rapport d'avancement: Pour chaques taches, qui mérite explication( toryotisme) Faire que ca auto genere les rapports d'avancement
-//// faire un truc pour gerer les deadline et gerer les liens entre les gens 
+//// faire un truc pour gerer les deadline et gerer les liens entre les gens -->
 
     <h1 class="welcomepolicetitle">Welcome {{ name }}</h1>
-    <p class="welcomepolicetxt">This is your entry point to JARVIS. Organizing Process Instrument Analysis.</p>
+    <p class="welcomepolicetxt">Bienvenu dans le point d'entrée de l'outil de management de SmarteningLight.</p>
     <div class="row">
         <div class="col-sm-1 col-md-1 col-lg-2"></div>
         <div class="col-sm-10 col-md-10 col-lg-8 m-5 bgdiv">
@@ -21,6 +21,7 @@
                 <span class="titlebox">Calendar:</span>
             </div>
             <div class="row">
+                <div class="col-sm-0 col-md-2 col-lg-2 centered"></div>
                 <div class="col-sm-12 col-md-4 col-lg-4 centered">
                     <a href="{{domainstring}}cal/year">
                         <div class="row boxes m-1">
@@ -28,7 +29,7 @@
                                 <div class="row">
                                     <div class="col-sm-4 col-md-4 col-lg-4"></div>
                                     <div class="col-sm-4 col-md-4 col-lg-4 centered">
-                                        <img src="/static/img/icons/scientist.svg" class="rocheicone" width="100%" height="100%">
+                                        <img src="/static/img/icons/calendar.svg" class="rocheicone" width="100%" height="100%">
                                     </div>
                                 </div>
                             </div>
@@ -45,12 +46,12 @@
                                 <div class="row">
                                     <div class="col-sm-4 col-md-4 col-lg-4"></div>
                                     <div class="col-sm-4 col-md-4 col-lg-4 centered">
-                                        <img src="/static/img/icons/engineer.svg" class="rocheicone" width="100%" height="100%">
+                                        <img src="/static/img/icons/sprint.svg" class="rocheicone" width="100%" height="100%">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-8 col-md-12 col-lg-12 mt-3 mb-3 centered">
-                                <span class="boxfield">Sprint calendar (d'abord un bouton par sprint)</span>
+                                <span class="boxfield">Sprints</span>
                             </div>
                         </div>
                     </a>
@@ -73,7 +74,7 @@
                                 <div class="row">
                                     <div class="col-sm-4 col-md-4 col-lg-4"></div>
                                     <div class="col-sm-4 col-md-4 col-lg-4 centered">
-                                        <img src="/static/img/icons/scientist.svg" class="rocheicone" width="100%" height="100%">
+                                        <img src="/static/img/icons/wiki.svg" class="rocheicone" width="100%" height="100%">
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +91,7 @@
                                 <div class="row">
                                     <div class="col-sm-4 col-md-4 col-lg-4"></div>
                                     <div class="col-sm-4 col-md-4 col-lg-4 centered">
-                                        <img src="/static/img/icons/engineer.svg" class="rocheicone" width="100%" height="100%">
+                                        <img src="/static/img/icons/todo.svg" class="rocheicone" width="100%" height="100%">
                                     </div>
                                 </div>
                             </div>
@@ -107,16 +108,17 @@
                                 <div class="row">
                                     <div class="col-sm-4 col-md-4 col-lg-4"></div>
                                     <div class="col-sm-4 col-md-4 col-lg-4 centered">
-                                        <img src="/static/img/icons/scientist.svg" class="rocheicone" width="100%" height="100%">
+                                        <img src="/static/img/icons/article.svg" class="rocheicone" width="100%" height="100%">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-8 col-md-12 col-lg-12 mt-3 mb-3 centered">
-                                <span class="boxfield">Article (par field: hardware, software, ia, etc.)</span>
+                                <span class="boxfield">Article</span>
                             </div>
                         </div>
                     </a>
                 </div>
+                <div class="col-sm-0 col-md-2 col-lg-2 centered"></div>
                 <div class="col-sm-12 col-md-4 col-lg-4 centered">
                     <a href="{{domainstring}}cal/dashboard">
                         <div class="row boxes m-1">
@@ -124,7 +126,7 @@
                                 <div class="row">
                                     <div class="col-sm-4 col-md-4 col-lg-4"></div>
                                     <div class="col-sm-4 col-md-4 col-lg-4 centered">
-                                        <img src="/static/img/icons/scientist.svg" class="rocheicone" width="100%" height="100%">
+                                        <img src="/static/img/icons/dashboard.svg" class="rocheicone" width="100%" height="100%">
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +143,7 @@
                                 <div class="row">
                                     <div class="col-sm-4 col-md-4 col-lg-4"></div>
                                     <div class="col-sm-4 col-md-4 col-lg-4 centered">
-                                        <img src="/static/img/icons/scientist.svg" class="rocheicone" width="100%" height="100%">
+                                        <img src="/static/img/icons/management.svg" class="rocheicone" width="100%" height="100%">
                                     </div>
                                 </div>
                             </div>

@@ -3,7 +3,7 @@ from .models import Project, Information, Content, Checks, TimelineDays, LevelDe
 from homensettings.models import DevicesTypes, Area
 
 ####################
-from .models import Sprint, Part, Meeting, Article, KnowledgeArticle, Rapport
+from .models import Sprint, Part, Meeting, WikiArticle, KnowledgeArticle, Rapport, Task, Todo
 
 class NameForm(forms.Form):
     name = forms.CharField(max_length=100)
@@ -15,11 +15,6 @@ class NameForm(forms.Form):
         which model is used
         which fields are used
 """
-
-class ProjectForm(forms.ModelForm):
-    class Meta:
-        model = Project
-        fields = '__all__'
 
 class InformationForm(forms.ModelForm):
     area = forms.ModelChoiceField(queryset=Area.objects.all(), empty_label=None)
@@ -86,6 +81,22 @@ class SequencesForm(forms.ModelForm):
 
 #####################################################################
 
+
+class TodoForm(forms.ModelForm):
+    class Meta:
+        model = Todo
+        fields = '__all__'
+
+class TaskForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = '__all__'
+
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = '__all__'
+
 class SprintForm(forms.ModelForm):
     class Meta:
         model = Sprint
@@ -104,9 +115,9 @@ class MeetingForm(forms.ModelForm):
         fields = '__all__'
 
 
-class ArticleForm(forms.ModelForm):
+class WikiArticleForm(forms.ModelForm):
     class Meta:
-        model = Article
+        model = WikiArticle
         fields = '__all__'
 
 

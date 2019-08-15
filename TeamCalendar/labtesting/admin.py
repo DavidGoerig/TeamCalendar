@@ -5,7 +5,7 @@ from django.forms import Textarea
 from .models import Levels, Information, Content, Checks, TimelineDays, LevelDefinition, SequenceDefinition, DeviceNames, ParametersNames, Setup, InstrumentDefinition, Instrument,Project, Sequences
 ######
 
-from .models import Sprint, Part, Meeting, Article, KnowledgeArticle, Rapport
+from .models import Sprint, Part, Meeting, WikiArticle, KnowledgeArticle, Rapport, Task, Todo
 """
     The aim of that is to add all this OMR to the admin site.
     
@@ -38,8 +38,10 @@ admin.site.register(Content, ContentAdmin)
 admin.site.register(Sprint)
 admin.site.register(Part)
 admin.site.register(Meeting)
-admin.site.register(Article)
+admin.site.register(WikiArticle)
 admin.site.register(KnowledgeArticle)
+admin.site.register(Todo)
+admin.site.register(Task)
 
 class RapportAdmin(admin.ModelAdmin):
     formfield_overrides = {
