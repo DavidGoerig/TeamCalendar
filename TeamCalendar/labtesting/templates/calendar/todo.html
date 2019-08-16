@@ -1,5 +1,48 @@
 {% extends "base.html" %}
-{% block title %}Default{% endblock %}
+{% load static %}
+{% block title %}Todo page{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/todo.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
 {% block content %}
-    <p>{{ default }}</p>
+<h3 class="centered p-2">Liste des TODOs.</h3>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 ">
+        <h5>Créer une nouvelle liste de TODO:</h5>
+        <div>
+            <form method="post">
+                {% csrf_token %}
+                {{ todoform.as_p }}
+                <input class="buttonadd p-2 ml-5" type="submit" name="addtodo" value="Submit"/>
+            </form>
+        </div>
+        <h6 class="mt-2">TODOS:</h6>
+        <div class="small_scrollable row" >
+            {% for todo in todos %}
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="boxes pl-2 mt-3">
+                    <h5>{{ todo.title }}</h5>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ taskform.as_p }}
+                            <input class="buttonadd p-2 ml-5" type="submit" name="addtask:{{ todo.id }}" value="Ajouter une tache"/>
+                        </form>
+                        <div class="row">
+                            {% for task in todo.todo.all %}
+                                <p>{{ task.is_done }}</p>
+                                <p>{{ task.title }}</p>
+                                <p>{{ task.desc }}</p>
+                                <form method="post">{% csrf_token %}<input type="submit" name="toggleit:{{ task.id }}:{{ task.is_done }}" value="Check / uncheck"/></form>
+                                <form method="post">{% csrf_token %}<input type="submit" name="deltask:{{ task.id }}" value="Deltask"/></form>
+                            {% endfor %}
+                        </div>
+                    <form method="post">{% csrf_token %}<input type="submit" name="deltodo:{{ todo.id }}" value="Delete todo"/></form>
+                </div>
+            </div>
+            {% empty %}
+                <p>Aucun todo.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -159,6 +159,7 @@ class Task(models.Model):
     desc = models.TextField()
 
 class Todo(models.Model):
+    title = models.CharField(max_length=200)
     todo = models.ManyToManyField(Task)
 
 class Meeting(models.Model):

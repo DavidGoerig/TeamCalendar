@@ -1,0 +1,55 @@
+.centered {
+    text-align: center;
+}
+
+.boxes {
+    border-left: 5px solid #7FB2E5;
+    background-color: white;
+    box-shadow: 2px 2px 3px 3px #bfbfbf;
+}
+
+.cat {
+    border: 2px solid #7FB2E5;
+    background-color: white;
+    box-shadow: 2px 2px 3px 3px #bfbfbf;
+}
+
+.buttonadd {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: #0066CC;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.boxfield {
+    font-family: 'Poppins', sans-serif;
+    color: #7FB2E5;
+    font-size: 22px;
+}
+
+.unscrollable {
+    position: fixed;
+    width: 100%;
+}
+
+.scrollable {
+    overflow: auto;
+    height: 800px;
+}
+
+.maxheight {
+    height: 100%;
+}
+
+.small_scrollable {
+    overflow: auto;
+    height: 600px;
+}
+
+.fixedbottom {
+    position: fixed;
+
+}

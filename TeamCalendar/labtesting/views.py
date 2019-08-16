@@ -10,8 +10,8 @@ from .settings import *
 from .create_project_from_template import *
 from django.db import IntegrityError
 
-from .models import Sprint, Part, KnowledgeArticle, Rapport, WikiArticle, Meeting
-from .forms import MeetingForm, RapportForm
+from .models import Sprint, Part, KnowledgeArticle, Rapport, WikiArticle, Meeting, Task, Todo
+from .forms import MeetingForm, RapportForm, TaskForm, TodoForm
 
 ##
 ##  Each url are defined in the file /labtesting/urls.py
@@ -92,7 +92,40 @@ def wiki(request):
 """
 @login_required
 def todo(request):
-    default = "todo"
+    todos = Todo.objects.all()
+    for iteration in request.POST:
+        id = iteration.split(":", 3)
+        if id[0] == "addtask":
+            todo = Todo.objects.get(id=id[1])
+            taskform = TaskForm(request.POST)
+            if taskform.is_valid():
+                new = taskform.save()
+                todo.todo.add(new)
+            taskform = TaskForm()
+            return HttpResponseRedirect('/cal/todo')
+        elif id[0] == "deltask":
+            Task.objects.get(id=id[1]).delete()
+            return HttpResponseRedirect('/cal/todo')
+        elif id[0] == "addtodo":
+            todoform = TodoForm(request.POST)
+            if todoform.is_valid():
+                new = todoform.save()
+            todoform = TodoForm()
+            return HttpResponseRedirect('/cal/todo')
+        elif id[0] == "deltodo":
+            Todo.objects.get(id=id[1]).delete()
+            return HttpResponseRedirect('/cal/todo')
+        elif id[0] == "toggleit":
+            task = Task.objects.get(id=id[1])
+            boolean = True
+            if id[2] == "True":
+                boolean = False
+            task.is_done = boolean
+            task.save()
+            return HttpResponseRedirect('/cal/todo')
+
+    todoform = TodoForm()
+    taskform = TaskForm()
     return render(request, 'calendar/todo.html', locals())
 
 """
