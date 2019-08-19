@@ -8,15 +8,15 @@
     </infomenu>
     <button0>
         <dropdownnbr>3</dropdownnbr>
-        <text>Calendar</text>
+        <text>Cal</text>
         <href>drop0</href>
         <icone>fas fa-vial</icone>
         <dropdown0>
-            <textdrop>Year calendar</textdrop>
+            <textdrop>Annuel</textdrop>
             <hrefdrop>cal/year</hrefdrop>
         </dropdown0>
         <dropdown1>
-            <textdrop>Sprint calendar</textdrop>
+            <textdrop>Sprints</textdrop>
             <hrefdrop>cal/sprint</hrefdrop>
         </dropdown1>
     </button0>
@@ -26,11 +26,11 @@
         <href>drop1</href>
         <icone>fas fa-diagnoses</icone>
         <dropdown0>
-            <textdrop>Wiki/textdrop</textdrop>
+            <textdrop>Wiki</textdrop>
             <hrefdrop><center>cal/wiki</center></hrefdrop>
         </dropdown0>
         <dropdown1>
-            <textdrop>Todo (team)</textdrop>
+            <textdrop>Todo</textdrop>
             <hrefdrop>cal/todo</hrefdrop>
         </dropdown1>
         <dropdown2>
@@ -38,11 +38,11 @@
             <hrefdrop>cal/article</hrefdrop>
         </dropdown2>
         <dropdown3>
-            <textdrop>Dashboard</textdrop>
+            <textdrop>????</textdrop>
             <hrefdrop>cal/dashboard</hrefdrop>
         </dropdown3>
         <dropdown4>
-            <textdrop>Management desc</textdrop>
+            <textdrop>Manag ement</textdrop>
             <hrefdrop>cal/mgmt</hrefdrop>
         </dropdown4>
     </button1>

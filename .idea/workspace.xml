@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04cdc13d-65d2-4181-8e63-3d25dca129c2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/article_def.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/homensettings/templates/homensettings/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/homensettings/templates/homensettings/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/homensettings/templates/homensettings/upload.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/labtesting/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/labtesting/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/article.html" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/article.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/sprint.html" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/sprint.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/todo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/labtesting/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/labtesting/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/static/css/sprint_display.css" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/static/css/sprint_display.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/static/css/todo.css" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/static/css/todo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCalendar/homensettings/templates/homensettings/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/homensettings/templates/homensettings/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCalendar/static/conf_file/menu_para_file.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/static/conf_file/menu_para_file.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.27658185">
+    <splitter split-orientation="horizontal" split-proportion="0.69210696">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -36,11 +24,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/TeamCalendar/homensettings/templates/homensettings/home.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="816">
-                  <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="126" />
+                <state relative-caret-position="841">
+                  <caret line="155" column="18" lean-forward="true" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
@@ -77,7 +65,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/views.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="621">
@@ -126,11 +114,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/article.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="187">
                   <caret line="11" column="83" selection-start-line="11" selection-start-column="83" selection-end-line="11" selection-end-column="83" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/TeamCalendar/static/conf_file/menu_para_file.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="748">
+                  <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
                 </state>
               </provider>
             </entry>
@@ -186,11 +183,6 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TeamCalendar/homensettings/admin.py">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/admin.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="620">
@@ -237,6 +229,8 @@
         <option value="$PROJECT_DIR$/TeamCalendar/labtesting/views.py" />
         <option value="$PROJECT_DIR$/TeamCalendar/static/css/sprint_display.css" />
         <option value="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/article.html" />
+        <option value="$PROJECT_DIR$/TeamCalendar/static/conf_file/menu_para_file.xml" />
+        <option value="$PROJECT_DIR$/TeamCalendar/homensettings/templates/homensettings/home.html" />
       </list>
     </option>
   </component>
@@ -352,6 +346,13 @@
               <item name="TeamCalendar" type="462c0819:PsiDirectoryNode" />
               <item name="TeamCalendar" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="conf_file" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TeamCalendar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TeamCalendar" type="462c0819:PsiDirectoryNode" />
+              <item name="TeamCalendar" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -435,12 +436,12 @@
       <workItem from="1565180672492" duration="1778000" />
       <workItem from="1565252572916" duration="1197000" />
       <workItem from="1566195925939" duration="759000" />
-      <workItem from="1566199610835" duration="5243000" />
+      <workItem from="1566199610835" duration="6617000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20837000" />
+    <option name="totallyTimeSpent" value="22211000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -609,13 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCalendar/homensettings/templates/homensettings/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="126" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-561">
@@ -672,16 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="175" column="52" selection-start-line="175" selection-start-column="52" selection-end-line="175" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/rapport.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -717,6 +701,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="83" selection-start-line="11" selection-start-column="83" selection-end-line="11" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCalendar/static/conf_file/menu_para_file.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="175" column="52" selection-start-line="175" selection-start-column="52" selection-end-line="175" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCalendar/homensettings/templates/homensettings/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="841">
+          <caret line="155" column="18" lean-forward="true" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
         </state>
       </provider>
     </entry>
