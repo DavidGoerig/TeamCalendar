@@ -11,7 +11,7 @@ from .create_project_from_template import *
 from django.db import IntegrityError
 
 from .models import Sprint, Part, KnowledgeArticle, Rapport, WikiArticle, Meeting, Task, Todo
-from .forms import MeetingForm, RapportForm, TaskForm, TodoForm
+from .forms import MeetingForm, RapportForm, TaskForm, TodoForm, KnowledgeArticleForm
 
 ##
 ##  Each url are defined in the file /labtesting/urls.py
@@ -140,7 +140,47 @@ def todo(request):
 @login_required
 def article(request):
     default = "article"
+    software = KnowledgeArticle.objects.filter(field="SOFTWARE")
+    hardware = KnowledgeArticle.objects.filter(field="HARDWARE")
+    front = KnowledgeArticle.objects.filter(field="FRONT END WEB")
+    back = KnowledgeArticle.objects.filter(field="BACK END WEB")
+    ia = KnowledgeArticle.objects.filter(field="IA")
+    management = KnowledgeArticle.objects.filter(field="MANAGEMENT")
     return render(request, 'calendar/article.html', locals())
+
+"""
+    This function define the page: article
+
+    Args:
+        request: object containing view information (GET, POST, temp variables, etc).
+
+    Returns:
+        render: with local variables and a link to the template: calendar/article.html
+"""
+@login_required
+def articledef(request, articleid):
+    default = "article"
+    try:
+        article = KnowledgeArticle.objects.get(id=articleid)
+    except Sprint.DoesNotExist:
+        article = None
+    if article == None:
+        raise Http404
+    for iteration in request.POST:
+        id = iteration.split(":", 3)
+        if id[0] == "delarticle":
+            article.delete()
+    form = KnowledgeArticleForm(request.POST or None, instance=article)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect('/cal/articledef/' + str(articleid))
+    return render(request, 'calendar/article_def.html', locals())
+
+@login_required
+def article_create(request):
+    new_article = KnowledgeArticle()
+    new_article.save()
+    return redirect('/cal/articledef/' + str(new_article.id))
 
 """
     This function define the page: dashboard

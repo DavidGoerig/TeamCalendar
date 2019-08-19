@@ -41,7 +41,13 @@ admin.site.register(Meeting)
 admin.site.register(WikiArticle)
 admin.site.register(KnowledgeArticle)
 admin.site.register(Todo)
-admin.site.register(Task)
+
+class TaskAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': Textarea(attrs={'rows':8, 'cols':80})}
+    }
+
+admin.site.register(Task, TaskAdmin)
 
 class RapportAdmin(admin.ModelAdmin):
     formfield_overrides = {

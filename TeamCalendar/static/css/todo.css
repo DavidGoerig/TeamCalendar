@@ -8,6 +8,12 @@
     box-shadow: 2px 2px 3px 3px #bfbfbf;
 }
 
+.tasks {
+    border: 5px solid black;
+    background-color: dimgray;
+    box-shadow: 2px 2px 3px 3px #bfbfbf;
+}
+
 .cat {
     border: 2px solid #7FB2E5;
     background-color: white;
@@ -37,7 +43,7 @@
 
 .scrollable {
     overflow: auto;
-    height: 800px;
+    height: 1000px;
 }
 
 .maxheight {
@@ -46,7 +52,7 @@
 
 .small_scrollable {
     overflow: auto;
-    height: 600px;
+    height: 1000px;
 }
 
 .fixedbottom {

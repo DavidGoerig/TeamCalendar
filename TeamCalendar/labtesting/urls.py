@@ -18,6 +18,8 @@ urlpatterns = [
     path('wiki', views.wiki),
     path('todo', views.todo),
     path('article', views.article),
+    path('articl/create', views.article_create),
+    path('articledef/<int:articleid>', views.articledef),
     path('dashboard', views.dashboard),
     path('mgmt', views.mgmt),
     path('sprint/def/<int:sprint_id>', views.sprint_def),

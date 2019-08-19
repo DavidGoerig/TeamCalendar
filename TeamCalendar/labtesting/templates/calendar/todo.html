@@ -17,31 +17,37 @@
             </form>
         </div>
         <h6 class="mt-2">TODOS:</h6>
-        <div class="small_scrollable row" >
-            {% for todo in todos %}
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <div class="boxes pl-2 mt-3">
-                    <h5>{{ todo.title }}</h5>
-                        <form method="post">
-                            {% csrf_token %}
-                            {{ taskform.as_p }}
-                            <input class="buttonadd p-2 ml-5" type="submit" name="addtask:{{ todo.id }}" value="Ajouter une tache"/>
-                        </form>
-                        <div class="row">
-                            {% for task in todo.todo.all %}
-                                <p>{{ task.is_done }}</p>
-                                <p>{{ task.title }}</p>
-                                <p>{{ task.desc }}</p>
-                                <form method="post">{% csrf_token %}<input type="submit" name="toggleit:{{ task.id }}:{{ task.is_done }}" value="Check / uncheck"/></form>
-                                <form method="post">{% csrf_token %}<input type="submit" name="deltask:{{ task.id }}" value="Deltask"/></form>
-                            {% endfor %}
-                        </div>
-                    <form method="post">{% csrf_token %}<input type="submit" name="deltodo:{{ todo.id }}" value="Delete todo"/></form>
+        <div class="small_scrollable col-sm-12 col-md-12 col-lg-12">
+            <div class="row">
+                {% for todo in todos %}
+                <div class="col-sm-5 col-md-5 col-lg-5 p-5 mt-2 boxes">
+                        <h5 class="centered">{{ todo.title }}</h5>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                {% for task in todo.todo.all %}
+                                    <div class="tasks mt-2">
+                                        <p>Statut: <img src="/static/img/icons/{% if task.is_done == True %}success{% else %}error{% endif %}.svg" class="rocheicone" width="40px" height="40px"></p>
+                                        <p>{{ task.title }}</p>
+                                        <p>{{ task.desc }}</p>
+                                        <form method="post">{% csrf_token %}<input type="submit" name="toggleit:{{ task.id }}:{{ task.is_done }}" value="Check / uncheck"/></form>
+                                        <form method="post">{% csrf_token %}<input type="submit" name="deltask:{{ task.id }}" value="Supprimer cette tâche"/></form>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 mt-3">
+                                <form method="post">
+                                    {% csrf_token %}
+                                    {{ taskform.as_p }}
+                                    <input class="buttonadd p-2 ml-5" type="submit" name="addtask:{{ todo.id }}" value="Ajouter une tache"/>
+                                </form>
+                            </div>
+                            <form method="post">{% csrf_token %}<input type="submit" name="deltodo:{{ todo.id }}" value="Delete todo"/></form>
                 </div>
+
+                <div class="col-sm-1 col-md-1 col-lg-1"></div>
+                {% empty %}
+                    <p>Aucun todo.</p>
+                {% endfor %}
             </div>
-            {% empty %}
-                <p>Aucun todo.</p>
-            {% endfor %}
         </div>
     </div>
 </div>

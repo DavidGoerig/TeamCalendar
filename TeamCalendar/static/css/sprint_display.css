@@ -20,6 +20,12 @@
     box-shadow: 2px 2px 3px 3px #bfbfbf;
 }
 
+.buttoncreate {
+    background-color: #7FB2E5;
+    color: white;
+    box-shadow: 2px 2px 3px 3px #bfbfbf;
+}
+
 .boxfield {
     font-family: 'Poppins', sans-serif;
     color: #7FB2E5;

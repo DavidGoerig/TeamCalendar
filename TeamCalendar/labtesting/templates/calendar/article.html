@@ -1,5 +1,130 @@
 {% extends "base.html" %}
-{% block title %}Default{% endblock %}
+{% load static %}
+{% block title %}Article display{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/sprint_display.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
 {% block content %}
-    <p>{{ default }}</p>
+
+<div class="row">
+    <div class="col-sm-12 col-md-3 col-lg-3" >
+        <h3 class="ml-5">Articles:</h3>
+        <a href="/cal/articl/create"><p class="mt-3 buttoncreate white centered p-3">Ecrire mon rapport.</p></a>
+    </div>
+    <div class="col-sm-12 col-md-7 col-lg-7" >
+        <h3>Article de software:</h3>
+        {% for article in software %}
+            <a href="/cal/articledef/{{ article.id }}">
+                <div class="boxes pl-2 mt-3">
+                    <h5>{{ article.title }}</h5>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                Auteur: <p>{{ article.auteur }}</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                Date de parution: <p>{{ article.date }}</p>
+                            </div>
+                        </div>
+                </div>
+            </a>
+        {% empty %}
+            <p>Aucun article.</p>
+        {% endfor %}
+
+        <h3>Article de hardware:</h3>
+        {% for article in hardware %}
+            <a href="/cal/articledef/{{ article.id }}">
+                <div class="boxes pl-2 mt-3">
+                    <h5>{{ article.title }}</h5>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                Auteur: <p>{{ article.auteur }}</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                Date de parution: <p>{{ article.date }}</p>
+                            </div>
+                        </div>
+                </div>
+            </a>
+        {% empty %}
+            <p>Aucun article.</p>
+        {% endfor %}
+
+        <h3>Article de front-end web:</h3>
+        {% for article in front %}
+            <a href="/cal/articledef/{{ article.id }}">
+                <div class="boxes pl-2 mt-3">
+                    <h5>{{ article.title }}</h5>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                Auteur: <p>{{ article.auteur }}</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                Date de parution: <p>{{ article.date }}</p>
+                            </div>
+                        </div>
+                </div>
+            </a>
+        {% empty %}
+            <p>Aucun article.</p>
+        {% endfor %}
+
+        <h3>Article de back-end web:</h3>
+        {% for article in back %}
+            <a href="/cal/articledef/{{ article.id }}">
+                <div class="boxes pl-2 mt-3">
+                    <h5>{{ article.title }}</h5>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                Auteur: <p>{{ article.auteur }}</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                Date de parution: <p>{{ article.date }}</p>
+                            </div>
+                        </div>
+                </div>
+            </a>
+        {% empty %}
+            <p>Aucun article.</p>
+        {% endfor %}
+
+        <h3>Article de IA:</h3>
+        {% for article in ia %}
+            <a href="/cal/articledef/{{ article.id }}">
+                <div class="boxes pl-2 mt-3">
+                    <h5>{{ article.title }}</h5>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                Auteur: <p>{{ article.auteur }}</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                Date de parution: <p>{{ article.date }}</p>
+                            </div>
+                        </div>
+                </div>
+            </a>
+        {% empty %}
+            <p>Aucun article.</p>
+        {% endfor %}
+
+        <h3>Article de management:</h3>
+        {% for article in management %}
+            <a href="/cal/articledef/{{ article.id }}">
+                <div class="boxes pl-2 mt-3">
+                    <h5>{{ article.title }}</h5>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                Auteur: <p>{{ article.auteur }}</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                Date de parution: <p>{{ article.date }}</p>
+                            </div>
+                        </div>
+                </div>
+            </a>
+        {% empty %}
+            <p>Aucun article.</p>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

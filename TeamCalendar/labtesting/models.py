@@ -1,5 +1,6 @@
 from django.db import models
 from .choices import *
+from django.utils import timezone
 
 """
     Database overview: https://drive.google.com/file/d/1iw1gKdBEAN5TSqEFqOGTkbSYH6brO5IE/view?usp=sharing
@@ -179,9 +180,11 @@ class Rapport(models.Model):
     descriptif_done = models.TextField()
 
 class KnowledgeArticle(models.Model):
-    field = models.CharField(choices=FIELD_CHOICES, default="SOFTWARE", max_length=200)
-    descriptif = models.CharField(max_length=2000)
     auteur = models.CharField(choices=TEAM_CHOICES, default="David", max_length=200)
+    title = models.CharField(max_length=200, default="Title")
+    date = models.DateTimeField(default=timezone.now, verbose_name="Date de parution")
+    field = models.CharField(choices=FIELD_CHOICES, default="SOFTWARE", max_length=200)
+    descriptif = models.TextField()
 
 class Part(models.Model):
     part_type = models.CharField(choices=PART_CHOICES, default="INTER SPRINT", max_length=200)
