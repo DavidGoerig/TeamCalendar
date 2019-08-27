@@ -3,9 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from .forms import ConnexionForm, UploadDeviceFileForm
-from .upload_device_from_file import handle_device_file
-from .models import Devices
+from .forms import ConnexionForm
 
 # Create your views here.
 
@@ -78,18 +76,7 @@ def deconnection(request):
     Returns:
         render: with local variables and a link to the template: homensettings/admin_home.html
 """
+@login_required
 def admin_home(request):
     name = request.user.username
     return render(request, 'homensettings/admin_home.html', locals())
-
-def upload_devices(request):
-    if request.method == 'POST':
-        form = UploadDeviceFileForm(request.POST, request.FILES)
-        if form.is_valid():
-            if ("addsequence" in request.POST):
-                Devices.object.all().delete
-            handle_device_file(request.FILES['file'])
-            return HttpResponseRedirect('/upload_devices')
-    else:
-        form = UploadDeviceFileForm()
-    return render(request, 'homensettings/upload.html', {'form': form})

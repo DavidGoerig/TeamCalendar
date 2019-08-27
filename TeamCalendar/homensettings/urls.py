@@ -16,5 +16,4 @@ urlpatterns = [
     url(r'^login', views.connection, name='login'),
     url(r'^deconnect', views.deconnection, name='deconnection'),
     url(r'^admin_home', views.admin_home, name='admin_home'),
-    url(r'^upload_devices', views.upload_devices, name='upload_devices'),
 ]
