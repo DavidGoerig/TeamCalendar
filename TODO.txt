@@ -4,6 +4,4 @@ TODO:
 - Créer les users
 - Déployer la plateforme
 
-- Créer les wikis!!!!!
 - Faire une belle page de mngmt -> Mettre des citations liens vers les sites cools de mngmt
-- Faire le truc de distribution des rôles

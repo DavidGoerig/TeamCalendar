@@ -2,35 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04cdc13d-65d2-4181-8e63-3d25dca129c2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0002_auto_20190611_0937.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0003_auto_20190612_1020.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0004_timelinedays_day_nbr.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0005_auto_20190612_1125.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0006_auto_20190612_1129.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0007_auto_20190613_0918.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0008_remove_devicenames_version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0009_auto_20190614_1141.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0010_sequencedefinition_break_def.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0011_auto_20190618_1039.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0012_auto_20190618_1338.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0013_auto_20190618_1440.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0014_auto_20190618_1553.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0015_auto_20190804_1506.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0016_auto_20190804_1506.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0017_auto_20190804_1512.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0018_auto_20190805_1950.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0019_auto_20190816_0856.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0020_auto_20190819_1007.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0021_auto_20190819_1036.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0022_auto_20190827_0903.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/migrations/0023_auto_20190828_1346.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/labtesting/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/article.html" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/article.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/wiki.html" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/wiki.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCalendar/labtesting/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCalendar/labtesting/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.74957216">
+    <splitter split-orientation="horizontal" split-proportion="0.57387334">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -72,8 +44,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/wiki.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="438">
-                  <caret line="36" column="93" selection-start-line="36" selection-start-column="93" selection-end-line="36" selection-end-column="93" />
+                <state relative-caret-position="608">
+                  <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
                 </state>
               </provider>
             </entry>
@@ -139,11 +111,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/TODO.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+                <state relative-caret-position="102">
+                  <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
                 </state>
               </provider>
             </entry>
@@ -219,7 +191,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/models.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="220">
@@ -274,7 +246,6 @@
         <option value="$PROJECT_DIR$/TeamCalendar/homensettings/views.py" />
         <option value="$PROJECT_DIR$/TeamCalendar/homensettings/urls.py" />
         <option value="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/sprint_def.html" />
-        <option value="$PROJECT_DIR$/TODO.txt" />
         <option value="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/mgmt.html" />
         <option value="$PROJECT_DIR$/TeamCalendar/labtesting/admin.py" />
         <option value="$PROJECT_DIR$/TeamCalendar/labtesting/choices.py" />
@@ -286,6 +257,7 @@
         <option value="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/article.html" />
         <option value="$PROJECT_DIR$/TeamCalendar/labtesting/models.py" />
         <option value="$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/wiki.html" />
+        <option value="$PROJECT_DIR$/TODO.txt" />
       </list>
     </option>
   </component>
@@ -397,12 +369,12 @@
       <workItem from="1566457400115" duration="1472000" />
       <workItem from="1566459443650" duration="1262000" />
       <workItem from="1566888476671" duration="5205000" />
-      <workItem from="1566980805957" duration="10901000" />
+      <workItem from="1566980805957" duration="10999000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42261000" />
+    <option name="totallyTimeSpent" value="42359000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -650,13 +622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/sprint_def.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/rapport.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -685,13 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
           <caret line="127" column="71" selection-start-line="127" selection-start-column="71" selection-end-line="127" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TODO.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -728,6 +686,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/wiki.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
@@ -735,6 +700,13 @@
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/sprint_def.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -748,10 +720,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCalendar/labtesting/templates/calendar/wiki.html">
+    <entry file="file://$PROJECT_DIR$/TODO.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="36" column="93" selection-start-line="36" selection-start-column="93" selection-end-line="36" selection-end-column="93" />
+        <state relative-caret-position="102">
+          <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
         </state>
       </provider>
     </entry>
