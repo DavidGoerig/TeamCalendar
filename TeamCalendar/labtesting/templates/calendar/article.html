@@ -25,6 +25,11 @@
                                 Date de parution: <p>{{ article.date }}</p>
                             </div>
                         </div>
+
+                        <form method="post">
+                                    {% csrf_token %}
+                                    <input type="submit" name="delit:{{ article.id }}" value="Supprimer l'article"/>
+                        </form>
                 </div>
             </a>
         {% empty %}
@@ -44,7 +49,11 @@
                                 Date de parution: <p>{{ article.date }}</p>
                             </div>
                         </div>
-                </div>
+
+                        <form method="post">
+                                    {% csrf_token %}
+                                    <input type="submit" name="delit:{{ article.id }}" value="Supprimer l'article"/>
+                        </form>
             </a>
         {% empty %}
             <p>Aucun article.</p>
@@ -63,6 +72,11 @@
                                 Date de parution: <p>{{ article.date }}</p>
                             </div>
                         </div>
+
+                        <form method="post">
+                                    {% csrf_token %}
+                                    <input type="submit" name="delit:{{ article.id }}" value="Supprimer l'article"/>
+                        </form>
                 </div>
             </a>
         {% empty %}
@@ -82,6 +96,11 @@
                                 Date de parution: <p>{{ article.date }}</p>
                             </div>
                         </div>
+
+                        <form method="post">
+                                    {% csrf_token %}
+                                    <input type="submit" name="delit:{{ article.id }}" value="Supprimer l'article"/>
+                        </form>
                 </div>
             </a>
         {% empty %}
@@ -101,6 +120,11 @@
                                 Date de parution: <p>{{ article.date }}</p>
                             </div>
                         </div>
+
+                        <form method="post">
+                                    {% csrf_token %}
+                                    <input type="submit" name="delit:{{ article.id }}" value="Supprimer l'article"/>
+                        </form>
                 </div>
             </a>
         {% empty %}
@@ -120,6 +144,11 @@
                                 Date de parution: <p>{{ article.date }}</p>
                             </div>
                         </div>
+
+                        <form method="post">
+                                    {% csrf_token %}
+                                    <input type="submit" name="delit:{{ article.id }}" value="Supprimer l'article"/>
+                        </form>
                 </div>
             </a>
         {% empty %}

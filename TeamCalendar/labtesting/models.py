@@ -32,7 +32,8 @@ class Meeting(models.Model):
 """
 class WikiArticle(models.Model):
     links = models.CharField(max_length=500)
-    descriptif = models.CharField(max_length=2000)
+    descriptif = models.TextField()
+    wikiname = models.CharField(max_length=200)
 """
     Store the Instrument reservation.
     related to :model:`labtesting.Project`

@@ -6,7 +6,7 @@ from datetime import datetime
 from django.db import IntegrityError
 
 from .models import Sprint, Part, KnowledgeArticle, Rapport, WikiArticle, Meeting, Task, Todo, GroupTask
-from .forms import MeetingForm, RapportForm, TaskForm, TodoForm, KnowledgeArticleForm, GrouptaskForm
+from .forms import MeetingForm, RapportForm, TaskForm, TodoForm, KnowledgeArticleForm, GrouptaskForm, WikiArticleForm
 
 ##
 ##  Each url are defined in the file /labtesting/urls.py
@@ -73,7 +73,18 @@ def sprint(request):
 """
 @login_required
 def wiki(request):
-    default = "Wiki"
+    wikis = WikiArticle.objects.all()
+    for iteration in request.POST:
+        id = iteration.split(":", 3)
+        if id[0] == "delit":
+            WikiArticle.objects.get(id=id[1]).delete()
+            return HttpResponseRedirect('/cal/wiki')
+        if id[0] == "addone":
+            form = WikiArticleForm(request.POST or None)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect('/cal/wiki')
+    form = WikiArticleForm(None)
     return render(request, 'calendar/wiki.html', locals())
 
 """
@@ -141,6 +152,11 @@ def article(request):
     back = KnowledgeArticle.objects.filter(field="BACK END WEB")
     ia = KnowledgeArticle.objects.filter(field="IA")
     management = KnowledgeArticle.objects.filter(field="MANAGEMENT")
+    for iteration in request.POST:
+        id = iteration.split(":", 3)
+        if id[0] == "delit":
+            KnowledgeArticle.objects.get(id=id[1]).delete()
+            return HttpResponseRedirect('/cal/article')
     return render(request, 'calendar/article.html', locals())
 
 """

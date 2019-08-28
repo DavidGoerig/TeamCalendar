@@ -1,5 +1,41 @@
 {% extends "base.html" %}
-{% block title %}Default{% endblock %}
+{% load static %}
+{% block title %}Project page{% endblock %}
+{% block scriptncss %}
+    <link href="{% static "/css/sprint_def.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
 {% block content %}
-    <p>{{ default }}</p>
+<div class="ml-4 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <h3 style="text-decoration: underline;">Liste des wikis:</h3><br>
+        <div class="row">
+            {% for wiki in wikis %}
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="boxes p-3 mt-3">
+                            <h3>{{ wiki.wikiname }}</h3>
+                            <p>Description:</p>
+                            <h5>{{ wiki.descriptif }}</h5>
+                            <p>Lien:</p>
+                            <a href="{{ wiki.links }}">{{ wiki.links }}</a>
+                            <form method="post">
+                                {% csrf_token %}
+                                <input class="unscrollable mt-3 white centered" type="submit" name="delit:{{ wiki.id }}" value="Supprimer l'entrée"/>
+                            </form>
+                        </div>
+                    </div>
+            {% empty %}
+                <p>Aucun wiki.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <h3>Créer un wiki:</h3><br>
+            <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" name="addone" value="Sauvegarder l'entrée wikipédia"/>
+            </form>
+    </div>
+</div>
 {% endblock %}
