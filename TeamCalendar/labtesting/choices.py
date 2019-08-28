@@ -4,6 +4,16 @@ PART_CHOICES = {
     ("PRE FOLLOW UP", "PRE FOLLOW UP"),
 }
 
+TASK_CHOICES = {
+    ("None", "None"),
+    ("David", "David"),
+    ("Hamid", "Hamid"),
+    ("William", "William"),
+    ("Florian", "Florian"),
+    ("Rodolphe", "Rodolphe"),
+    ("Guillaume", "Guillaume"),
+}
+
 TEAM_CHOICES = {
     ("David", "David"),
     ("Hamid", "Hamid"),

@@ -87,6 +87,10 @@
                             </div>
                         {% endfor %}
                         <a href="/cal/rapport/create/{{sprint.id}}/{{part.id}}"><p class="unscrollable mt-3 white centered">Ecrire mon rapport.</p></a>
+                        <form method="post">
+                            {% csrf_token %}
+                            <input class="unscrollable mt-3 white centered" type="submit" name="exporttxt:{{ part.id }}" value="Exporter les rapports en .txt ."/>
+                        </form>
                     </div>
                 {% endfor %}
             </div>

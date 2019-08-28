@@ -5,8 +5,8 @@ from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from django.db import IntegrityError
 
-from .models import Sprint, Part, KnowledgeArticle, Rapport, WikiArticle, Meeting, Task, Todo
-from .forms import MeetingForm, RapportForm, TaskForm, TodoForm, KnowledgeArticleForm
+from .models import Sprint, Part, KnowledgeArticle, Rapport, WikiArticle, Meeting, Task, Todo, GroupTask
+from .forms import MeetingForm, RapportForm, TaskForm, TodoForm, KnowledgeArticleForm, GrouptaskForm
 
 ##
 ##  Each url are defined in the file /labtesting/urls.py
@@ -188,7 +188,35 @@ def article_create(request):
 """
 @login_required
 def dashboard(request):
-    default = "dashboard"
+    david = GroupTask.objects.filter(assigned_member="David")
+    hamid = GroupTask.objects.filter(assigned_member="Hamid")
+    guillaume = GroupTask.objects.filter(assigned_member="Guillaume")
+    none = GroupTask.objects.filter(assigned_member="None")
+    william = GroupTask.objects.filter(assigned_member="William")
+    florian = GroupTask.objects.filter(assigned_member="Florian")
+    rodolphe = GroupTask.objects.filter(assigned_member="Rodolphe")
+    for iteration in request.POST:
+        id = iteration.split(":", 3)
+        if id[0] == "unassign":
+            groupast = GroupTask.objects.get(id=id[1])
+            groupast.assigned_member = "None"
+            groupast.save()
+            return HttpResponseRedirect('/cal/dashboard')
+        if id[0] == "assign":
+            groupast = GroupTask.objects.get(id=id[1])
+            groupast.assigned_member = id[2]
+            groupast.save()
+            return HttpResponseRedirect('/cal/dashboard')
+        if id[0] == "addone":
+            form = GrouptaskForm(request.POST or None)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect('/cal/dashboard')
+        if id[0] == "delit":
+            GroupTask.objects.get(id=id[1]).delete()
+            return HttpResponseRedirect('/cal/dashboard')
+
+    form = GrouptaskForm(None)
     return render(request, 'calendar/dashboard.html', locals())
 
 """
@@ -225,6 +253,7 @@ def sprint_def(request, sprint_id):
     sprint_part = sprint.sprint_part.all()
     for iteration in request.POST:
         id = iteration.split(":", 3)
+        print(id)
         if id[0] == "addevent":
             form = MeetingForm(request.POST)
             if form.is_valid():
@@ -251,7 +280,16 @@ def sprint_def(request, sprint_id):
             part.is_meeting_ready = boolean
             part.save()
             return HttpResponseRedirect('/cal/sprint/def/' + str(sprint_id))
-
+        elif id[0] == "exporttxt":
+            part = Part.objects.get(id=id[1])
+            content = ""
+            rapports = part.rapport_mensuel.all()
+            for rapport in rapports:
+                content = content + rapport.auteur + ":\n" +  rapport.descriptif_done + "\n\n"
+            filename = "rapport.txt"
+            response = HttpResponse(content, content_type='text/plain')
+            response['Content-Disposition'] = 'attachment; filename={0}'.format(filename)
+            return response
     form = MeetingForm()
     return render(request, 'calendar/sprint_def.html', locals())
 

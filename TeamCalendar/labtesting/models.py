@@ -75,3 +75,12 @@ class Sprint(models.Model):
     date_end = models.DateField()
     descriptif = models.CharField(max_length=2000)
     sprint_part = models.ManyToManyField(Part)
+
+"""
+    Store the Instrument reservation.
+    related to :model:`labtesting.Project`
+"""
+class GroupTask(models.Model):
+    assigned_member = models.CharField(choices=TASK_CHOICES, default="None", max_length=100)
+    task_name = models.CharField(max_length=200)
+    task_desc = models.TextField()

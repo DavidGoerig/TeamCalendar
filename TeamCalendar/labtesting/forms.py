@@ -1,5 +1,5 @@
 from django import forms
-from .models import Sprint, Part, Meeting, WikiArticle, KnowledgeArticle, Rapport, Task, Todo
+from .models import GroupTask, Sprint, Part, Meeting, WikiArticle, KnowledgeArticle, Rapport, Task, Todo
 
 class NameForm(forms.Form):
     name = forms.CharField(max_length=100)
@@ -56,3 +56,8 @@ class RapportForm(forms.ModelForm):
     class Meta:
         model = Rapport
         fields = '__all__'
+
+class GrouptaskForm(forms.ModelForm):
+    class Meta:
+        model = GroupTask
+        fields = ('task_name', 'task_desc',)
