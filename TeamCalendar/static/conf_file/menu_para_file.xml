@@ -2,8 +2,8 @@
     <infomenu>
         <nbrbutton>2</nbrbutton> <!-- gestion d'erreure x > 0 && x < 12 -->
         <iconetext>Home</iconetext>
-        <index>http://localhost:8000</index>
-        <domain>http://localhost:8000/</domain>
+        <index>/</index>
+        <domain>/</domain>
         <icone>fas fa-home</icone>
     </infomenu>
     <button0>

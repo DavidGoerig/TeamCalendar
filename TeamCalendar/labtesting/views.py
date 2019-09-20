@@ -23,7 +23,7 @@ from .forms import MeetingForm, RapportForm, TaskForm, TodoForm, KnowledgeArticl
 """
 @login_required
 def home(request):
-    domainstring = "http://localhost:8000/"
+    domainstring = "/"
     return render(request, 'labtesting/home.html', locals())
 
 """

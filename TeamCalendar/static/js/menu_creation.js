@@ -178,7 +178,7 @@ $(document).ready(function(e) {
             iconetext: "Default",
             index: "#",
             error: false,
-            domain: "localhost:8000"
+            domain: "/"
         };
         let nbrbutton = infomenu.find("nbrbutton").text();
         if (Number(nbrbutton)){
