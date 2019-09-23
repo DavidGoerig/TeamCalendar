@@ -25,7 +25,7 @@ SECRET_KEY = '=r-n$v5_@j(z%dc9rp7cdn=&nb6kv(&%l!gx+wjb(@x9oal)ml'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['teamcalendarhelios.herokuapp.com']
 
 
 # Application definition
